@@ -1,0 +1,57 @@
+:root {
+    --board-bg-color: rgb(0, 0, 0);
+    --block-bg-color: rgb(60, 60, 60);
+    --cell-bg-color: rgb(101, 101, 101);
+    --font-color: rgb(198, 152, 250);
+    --cell-size: 50px;
+}
+
+.board
+{
+    position: absolute;
+    top: 200px;
+    left: 300px;
+    border-style: solid;
+    border-width: 3px;
+    border-color: var(--board-bg-color);
+}
+
+.table
+{
+    border-spacing: unset;
+}
+
+.block
+{
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+}
+
+.cell {
+    width: var(--cell-size);
+    height: var(--cell-size);
+    border-style: solid;
+    border-color: var(--cell-bg-color);
+    border-width: 1px;
+    text-align: center;
+    font-family: Bahnschrift;
+    font-size: xx-large;
+    color: var(--font-color);
+}
+
+.cell:nth-child(3n) {
+    border-right: 5px solid var(--block-bg-color);
+}
+
+.cell:last-child {
+    border: 1px solid var(--cell-bg-color);
+}
+
+tr:nth-child(3n) .cell {
+    border-bottom: 5px solid var(--block-bg-color);
+}
+
+tr:last-child .cell {
+    border-bottom: 1px solid var(--cell-bg-color);
+}
