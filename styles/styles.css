@@ -3,17 +3,140 @@
     --block-bg-color: rgb(60, 60, 60);
     --cell-bg-color: rgb(101, 101, 101);
     --font-color: rgb(198, 152, 250);
+    --button-color: rgb(198, 152, 250);
+    --button-hover-color: rgb(66, 15, 161);
+
     --cell-size: 50px;
 }
 
-.board
+#registerContainer
 {
-    position: absolute;
-    top: 200px;
-    left: 300px;
-    border-style: solid;
-    border-width: 3px;
-    border-color: var(--board-bg-color);
+    display: none;
+    position: fixed;
+    width: 400px;
+    height: 430px;
+    background-color: rgba(0,0,0,0.9);
+    top: 52%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    color: azure;
+}
+
+.innerContainer {
+    font-family: Bahnschrift;
+    font-size: 17px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 300px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Eingabefelder und Buttons einheitlich gestalten */
+.innerContainer input[type="text"],
+.innerContainer input[type="password"],
+.innerContainer select {
+    font-family: Bahnschrift;
+    font-size: 17px;
+    width: 80%;
+    margin: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.innerContainer input[type="submit"] {
+    font-family: Bahnschrift;
+    font-size: 20px;
+    background-color: var(--button-color);
+
+    border: none;
+    border-radius: 5px;
+    color: var(--board-bg-color);
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+.innerContainer input[type="submit"]:hover {
+    background-color: var(--button-hover-color) ;
+    color: azure;
+}
+
+.right form {
+    display: flex;
+    flex-direction: column;
+    align-items: self-end;
+}
+
+.right label {
+    margin-bottom: 3px;
+    font-family: Bahnschrift;
+    font-size: 10px;
+}
+
+.inputField {
+    font-family: Bahnschrift;
+    font-size: 10px;
+    width: 96px;
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 3px;
+}
+
+.button_LuR {
+    font-family: Bahnschrift;
+    font-size: 11px;
+    background-color: var(--button-color);
+    border: 0px;
+    border-radius: 3px;
+    color: var(--board-bg-color);
+    cursor: pointer;
+}
+
+.button_LuR:hover {
+    background-color: var(--button-hover-color);
+    color: azure;
+}
+
+.header {
+    display: flex;
+    align-items: flex-end;
+    max-width: 100%;
+}
+
+.left {
+    vertical-align: bottom;
+    flex: auto;
+    padding: 0px;
+    text-align: left;
+}
+
+.right {
+    flex: auto;
+    text-align: right;
+    padding-bottom: 8px;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.footer {
+    text-align: center;
+    padding: 10px;
 }
 
 .table

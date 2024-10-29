@@ -11,8 +11,6 @@ $dataBlock = new FilterData($request);
 $data = $dataBlock->getArray();
 $views = $dataBlock->getViews();
 
-print_r($views);
-
 if ($views['action'] == 'showMain' || $views['action'] == 'showCreate' || $views['action'] == 'showPlay') {
     $controllerName = ucfirst($views['action']) . 'Controller';
     $controller = new $controllerName($views['area'], $views['view']);

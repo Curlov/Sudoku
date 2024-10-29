@@ -222,8 +222,7 @@ class Board
     public function backtracking(): bool
     {
         if ($this->allNumbersSet()){
-            $this->solutionCount++;
-            return true; //false setzen für Zählung;
+            return true;
         }
 
         list($row, $col) = $this->nextFreeCell();
@@ -240,7 +239,7 @@ class Board
                 $this->setNumber($row, $col, $number);
 
                 $solved = $this->backtracking();
-                if ($solved) { //Ausklammern für Zählung
+                if ($solved) {
                     return true;
                 }
 
@@ -249,5 +248,28 @@ class Board
         }
         return false;
     }
+
+    public function solutionsCount(): bool
+    {
+        if ($this->allNumbersSet()){
+            $this->solutionCount++;
+            return false;
+        }
+
+        list($row, $col) = $this->nextFreeCell();
+
+        for ($number = 1; $number <= 9; $number++) {
+            if ($this->numberAllowed($row, $col, $number)) {
+                $this->setNumber($row, $col, $number);
+
+                $this->backtracking();
+
+                $this->setNumber($row, $col, 0);
+            }
+        }
+        return false;
+    }
+
+
 
 }
