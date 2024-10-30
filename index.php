@@ -11,11 +11,15 @@ $dataBlock = new FilterData($request);
 $data = $dataBlock->getArray();
 $views = $dataBlock->getViews();
 
-if ($views['action'] == 'showMain' || $views['action'] == 'showRegister' || $views['action'] == 'showPlay') {
+print_r($data);
+echo "<br>";
+print_r($views);
+
+if ($views['action'] == 'showMain' || $views['action'] == 'showEnter' || $views['action'] == 'showPlay') {
     $controllerName = ucfirst($views['action']) . 'Controller';
     $controller = new $controllerName($views['area'], $views['view']);
-    //$array = $controller->invoke($data);
-    //!empty($array) && ${$array['arrayName']} = $array['data'];
+    $array = $controller->invoke($data);
+    !empty($array) && ${$array['arrayName']} = $array['data'];
 
-    include 'views/' . $controller->getArea() . '/' . $controller->getView() . '.php';
+    include 'views/' . $controller->getArea() . '/main.php';
 }

@@ -10,7 +10,7 @@
 
 #registerContainer
 {
-    display: none;
+    /*display: none;*/
     position: fixed;
     width: 400px;
     height: 430px;

@@ -2,7 +2,7 @@ DROP DATABASE IF EXISTS sudoku;
 CREATE DATABASE sudoku;
 USE sudoku;
 
-create table user
+create table users
 (
     id       int                  not null,
     password varchar(255)         not null,

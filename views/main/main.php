@@ -7,34 +7,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./styles/styles.css">
     <script src="/src/scripts.js"></script>
-    <title>The Sudoku Project</title>
+    <title>Project Sudoku</title>
 </head>
 <body>
 
-<div id="registerContainer">
-    <div class="innerContainer">
-        <h1>REGISTRATION</h1>
-        <form action="index.php" method="post">
-
-            <input type="hidden" name="action" value="showEnter">
-            <input type="hidden" name="area" value="main">
-            <input type="hidden" name="view" value="main">
-
-            <label>USERNAME<br>
-                <input type="text" name="username"><br>
-            </label>
-            <label>PASSWORD<br>
-                <input type="password" name="password"><br>
-            </label>
-            <label>CONTRY<br>
-                <select name="contry"><br>
-                    <?php include "./src/countrys.php"; ?>
-                </select>
-            </label>
-            <input type="submit" name="submit" value="Register">
-        </form>
-    </div>
-</div>
+    <?php Container::register("none"); ?>
 
     <div>
         <div class="header">
