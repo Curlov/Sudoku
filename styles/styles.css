@@ -5,7 +5,6 @@
     --font-color: rgb(198, 152, 250);
     --button-color: rgb(198, 152, 250);
     --button-hover-color: rgb(66, 15, 161);
-
     --cell-size: 50px;
 }
 
@@ -15,8 +14,9 @@
     position: fixed;
     width: 400px;
     height: 430px;
-    background-color: rgba(0,0,0,0.9);
-    top: 52%;
+    border-radius: 15px;
+    background-color: rgba(0,0,0,0.85);
+    top: 54%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1000;
@@ -24,7 +24,7 @@
 }
 
 .innerContainer {
-    font-family: Bahnschrift;
+    font-family: Bahnschrift, serif;
     font-size: 17px;
     display: flex;
     flex-direction: column;
@@ -33,25 +33,22 @@
     text-align: center;
     margin: 0 auto;
     padding: 20px;
-    max-width: 300px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* Eingabefelder und Buttons einheitlich gestalten */
 .innerContainer input[type="text"],
 .innerContainer input[type="password"],
 .innerContainer select {
-    font-family: Bahnschrift;
+    font-family: Bahnschrift, serif;
     font-size: 17px;
-    width: 80%;
+    width: 70%;
     margin: 10px;
-    padding: 10px;
+    padding: 5px;
     box-sizing: border-box;
 }
 
 .innerContainer input[type="submit"] {
-    font-family: Bahnschrift;
+    font-family: Bahnschrift, serif;
     font-size: 20px;
     background-color: var(--button-color);
 
@@ -92,7 +89,7 @@
 }
 
 .button_LuR {
-    font-family: Bahnschrift;
+    font-family: Bahnschrift, serif;
     font-size: 11px;
     background-color: var(--button-color);
     border: 0px;
@@ -158,7 +155,7 @@ body {
     border-color: var(--cell-bg-color);
     border-width: 1px;
     text-align: center;
-    font-family: Bahnschrift;
+    font-family: Bahnschrift, serif;
     font-size: xx-large;
     color: var(--font-color);
 }

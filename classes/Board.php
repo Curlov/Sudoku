@@ -112,8 +112,8 @@ class Board
             echo '<tr>';
             for ($j = 1; $j <= 9; $j++) {
                 $celle = ($i-1)*9 + $j;
-                echo '<td class="cell" ' . (($this->mask[$i][$j] ?? 0) != 0 ? 'style="color:black;"' : '') . ' id="' . $celle . '">' . (($this->board[$i][$j] != 0) ? $this->board[$i][$j] : '&nbsp;') . '</td>';
-
+                echo '<td class="cell" ' . (($this->mask[$i][$j] ?? 0) != 0 ? 'style="color:black;"' : '') .
+                     ' id="' . $celle . '">' . (($this->board[$i][$j] != 0) ? $this->board[$i][$j] : '&nbsp;') . '</td>';
             }
             echo '</tr>';
         }
@@ -163,7 +163,6 @@ class Board
         foreach ($this->field[$fieldNumber] as [$row, $col])
         {
             if (($this->getBoardRowCol($row, $col)) == $number) {
-                //echo "$number in Feld $fieldNumber gefunden";
                 return false;
             }
         }

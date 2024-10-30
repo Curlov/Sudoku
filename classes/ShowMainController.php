@@ -19,9 +19,9 @@ class ShowMainController
     public function invoke(array $delivery = []) : array
     {
         if ($this->area == 'main' && $delivery['id'] == 0) {
-            return ['arrayName' => 'main', 'data' =>[]];
+            return ['arrayName' => 'user', 'data' => []];
         } elseif ($this->area == 'car' && $delivery['id'] != 0) {
-            return ['arrayName' => 'car', 'data' =>[]];
+            return ['arrayName' => 'user', 'data' => [$delivery]];
         }
         return [];
     }
