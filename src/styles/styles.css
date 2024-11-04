@@ -23,7 +23,7 @@
     height: 430px;
     border-radius: 15px;
     background-color: rgba(0,0,0,0.85);
-    top: 54%;
+    top: 450px;   /*54%;*/
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1000;
