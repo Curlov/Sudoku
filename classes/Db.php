@@ -14,7 +14,7 @@ class Db {
             try {
                 self::$dbh = new PDO(DB_DSN, DB_USER, DB_PASSWD);
             } catch (PDOException $e) {
-                echo "Connection failed: " . $e->getMessage();
+                throw new Exception($e);
             }
         }
         return self::$dbh;

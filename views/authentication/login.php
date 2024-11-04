@@ -11,7 +11,7 @@
 </head>
 <body>
 
-    <div>
+    <div class="base">
         <div class="header">
             <div class="left">
                 <a href="index.php">

@@ -11,7 +11,7 @@
 </head>
 <body>
 
-    <div>
+    <div class="base">
         <div class="header">
             <div class="left">
                 <a href="index.php">
@@ -41,7 +41,7 @@
 
                             } else {
                                 echo "<h1>NOTIFICATION</h1>
-                                  <h2>Uuups!<br>Something went wrong here.<br>Registration has failed</h2><br> ";
+                                  <h2>Ooops!<br>Something went wrong here.<br>Registration has failed</h2><br> ";
                             }
                         ?>
 

@@ -1,0 +1,56 @@
+04.11.2024 - 12:43:03   PDOException: SQLSTATE[HY000] [1045] Access denied for user 'rorot'@'localhost' (using password: NO) in C:\Users\ThomasWolting\OneDrive - BBQ - Baumann Bildung und Qualifizierung GmbH\source\PHP\Projekte\sudoku\classes\Db.php:15
+Stack trace:
+#0 C:\Users\ThomasWolting\OneDrive - BBQ - Baumann Bildung und Qualifizierung GmbH\source\PHP\Projekte\sudoku\classes\Db.php(15): PDO->__construct('mysql:dbname=su...', 'rorot', Object(SensitiveParameterValue))
+#1 C:\Users\ThomasWolting\OneDrive - BBQ - Baumann Bildung und Qualifizierung GmbH\source\PHP\Projekte\sudoku\classes\User.php(177): Db::getConnection()
+#2 C:\Users\ThomasWolting\OneDrive - BBQ - Baumann Bildung und Qualifizierung GmbH\source\PHP\Projekte\sudoku\controllers\ShowAuthenticationController.php(68): User->isLoginOK('Thomas', 'himmel')
+#3 C:\Users\ThomasWolting\OneDrive - BBQ - Baumann Bildung und Qualifizierung GmbH\source\PHP\Projekte\sudoku\index.php(22): ShowAuthenticationController->invoke(Array)
+#4 {main}
+04.11.2024 - 12:41:47   PDOException: SQLSTATE[HY000] [1045] Access denied for user 'rorot'@'localhost' (using password: NO) in C:\Users\ThomasWolting\OneDrive - BBQ - Baumann Bildung und Qualifizierung GmbH\source\PHP\Projekte\sudoku\classes\Db.php:15
+Stack trace:
+#0 C:\Users\ThomasWolting\OneDrive - BBQ - Baumann Bildung und Qualifizierung GmbH\source\PHP\Projekte\sudoku\classes\Db.php(15): PDO->__construct('mysql:dbname=su...', 'rorot', Object(SensitiveParameterValue))
+#1 C:\Users\ThomasWolting\OneDrive - BBQ - Baumann Bildung und Qualifizierung GmbH\source\PHP\Projekte\sudoku\classes\User.php(177): Db::getConnection()
+#2 C:\Users\ThomasWolting\OneDrive - BBQ - Baumann Bildung und Qualifizierung GmbH\source\PHP\Projekte\sudoku\controllers\ShowAuthenticationController.php(68): User->isLoginOK('Thomas', 'himmel')
+#3 C:\Users\ThomasWolting\OneDrive - BBQ - Baumann Bildung und Qualifizierung GmbH\source\PHP\Projekte\sudoku\index.php(22): ShowAuthenticationController->invoke(Array)
+#4 {main}
+04.11.2024 - 12:41:22   PDOException: SQLSTATE[HY000] [1045] Access denied for user 'rorot'@'localhost' (using password: NO) in C:\Users\ThomasWolting\OneDrive - BBQ - Baumann Bildung und Qualifizierung GmbH\source\PHP\Projekte\sudoku\classes\Db.php:15
+Stack trace:
+#0 C:\Users\ThomasWolting\OneDrive - BBQ - Baumann Bildung und Qualifizierung GmbH\source\PHP\Projekte\sudoku\classes\Db.php(15): PDO->__construct('mysql:dbname=su...', 'rorot', Object(SensitiveParameterValue))
+#1 C:\Users\ThomasWolting\OneDrive - BBQ - Baumann Bildung und Qualifizierung GmbH\source\PHP\Projekte\sudoku\classes\User.php(177): Db::getConnection()
+#2 C:\Users\ThomasWolting\OneDrive - BBQ - Baumann Bildung und Qualifizierung GmbH\source\PHP\Projekte\sudoku\controllers\ShowAuthenticationController.php(68): User->isLoginOK('Thomas', 'himmel')
+#3 C:\Users\ThomasWolting\OneDrive - BBQ - Baumann Bildung und Qualifizierung GmbH\source\PHP\Projekte\sudoku\index.php(22): ShowAuthenticationController->invoke(Array)
+#4 {main}
+04.11.2024 - 12:41:06   PDOException: SQLSTATE[HY000] [1045] Access denied for user 'rorot'@'localhost' (using password: NO) in C:\Users\ThomasWolting\OneDrive - BBQ - Baumann Bildung und Qualifizierung GmbH\source\PHP\Projekte\sudoku\classes\Db.php:15
+Stack trace:
+#0 C:\Users\ThomasWolting\OneDrive - BBQ - Baumann Bildung und Qualifizierung GmbH\source\PHP\Projekte\sudoku\classes\Db.php(15): PDO->__construct('mysql:dbname=su...', 'rorot', Object(SensitiveParameterValue))
+#1 C:\Users\ThomasWolting\OneDrive - BBQ - Baumann Bildung und Qualifizierung GmbH\source\PHP\Projekte\sudoku\classes\User.php(177): Db::getConnection()
+#2 C:\Users\ThomasWolting\OneDrive - BBQ - Baumann Bildung und Qualifizierung GmbH\source\PHP\Projekte\sudoku\controllers\ShowAuthenticationController.php(68): User->isLoginOK('Thomas', 'himmel')
+#3 C:\Users\ThomasWolting\OneDrive - BBQ - Baumann Bildung und Qualifizierung GmbH\source\PHP\Projekte\sudoku\index.php(22): ShowAuthenticationController->invoke(Array)
+#4 {main}
+04.11.2024 - 12:40:56   PDOException: SQLSTATE[HY000] [1045] Access denied for user 'rorot'@'localhost' (using password: NO) in C:\Users\ThomasWolting\OneDrive - BBQ - Baumann Bildung und Qualifizierung GmbH\source\PHP\Projekte\sudoku\classes\Db.php:15
+Stack trace:
+#0 C:\Users\ThomasWolting\OneDrive - BBQ - Baumann Bildung und Qualifizierung GmbH\source\PHP\Projekte\sudoku\classes\Db.php(15): PDO->__construct('mysql:dbname=su...', 'rorot', Object(SensitiveParameterValue))
+#1 C:\Users\ThomasWolting\OneDrive - BBQ - Baumann Bildung und Qualifizierung GmbH\source\PHP\Projekte\sudoku\classes\User.php(177): Db::getConnection()
+#2 C:\Users\ThomasWolting\OneDrive - BBQ - Baumann Bildung und Qualifizierung GmbH\source\PHP\Projekte\sudoku\controllers\ShowAuthenticationController.php(68): User->isLoginOK('Thomas', 'himmel')
+#3 C:\Users\ThomasWolting\OneDrive - BBQ - Baumann Bildung und Qualifizierung GmbH\source\PHP\Projekte\sudoku\index.php(22): ShowAuthenticationController->invoke(Array)
+#4 {main}
+04.11.2024 - 12:40:12   PDOException: SQLSTATE[HY000] [1045] Access denied for user 'rorot'@'localhost' (using password: NO) in C:\Users\ThomasWolting\OneDrive - BBQ - Baumann Bildung und Qualifizierung GmbH\source\PHP\Projekte\sudoku\classes\Db.php:15
+Stack trace:
+#0 C:\Users\ThomasWolting\OneDrive - BBQ - Baumann Bildung und Qualifizierung GmbH\source\PHP\Projekte\sudoku\classes\Db.php(15): PDO->__construct('mysql:dbname=su...', 'rorot', Object(SensitiveParameterValue))
+#1 C:\Users\ThomasWolting\OneDrive - BBQ - Baumann Bildung und Qualifizierung GmbH\source\PHP\Projekte\sudoku\classes\User.php(177): Db::getConnection()
+#2 C:\Users\ThomasWolting\OneDrive - BBQ - Baumann Bildung und Qualifizierung GmbH\source\PHP\Projekte\sudoku\controllers\ShowAuthenticationController.php(68): User->isLoginOK('Thomas', 'himmel')
+#3 C:\Users\ThomasWolting\OneDrive - BBQ - Baumann Bildung und Qualifizierung GmbH\source\PHP\Projekte\sudoku\index.php(22): ShowAuthenticationController->invoke(Array)
+#4 {main}
+04.11.2024 - 12:39:31   PDOException: SQLSTATE[HY000] [1045] Access denied for user 'rorot'@'localhost' (using password: NO) in C:\Users\ThomasWolting\OneDrive - BBQ - Baumann Bildung und Qualifizierung GmbH\source\PHP\Projekte\sudoku\classes\Db.php:15
+Stack trace:
+#0 C:\Users\ThomasWolting\OneDrive - BBQ - Baumann Bildung und Qualifizierung GmbH\source\PHP\Projekte\sudoku\classes\Db.php(15): PDO->__construct('mysql:dbname=su...', 'rorot', Object(SensitiveParameterValue))
+#1 C:\Users\ThomasWolting\OneDrive - BBQ - Baumann Bildung und Qualifizierung GmbH\source\PHP\Projekte\sudoku\classes\User.php(177): Db::getConnection()
+#2 C:\Users\ThomasWolting\OneDrive - BBQ - Baumann Bildung und Qualifizierung GmbH\source\PHP\Projekte\sudoku\controllers\ShowAuthenticationController.php(68): User->isLoginOK('Thomas', 'himmel')
+#3 C:\Users\ThomasWolting\OneDrive - BBQ - Baumann Bildung und Qualifizierung GmbH\source\PHP\Projekte\sudoku\index.php(22): ShowAuthenticationController->invoke(Array)
+#4 {main}
+04.11.2024 - 12:36:32   PDOException: SQLSTATE[HY000] [1045] Access denied for user 'rorot'@'localhost' (using password: NO) in C:\Users\ThomasWolting\OneDrive - BBQ - Baumann Bildung und Qualifizierung GmbH\source\PHP\Projekte\sudoku\classes\Db.php:15
+Stack trace:
+#0 C:\Users\ThomasWolting\OneDrive - BBQ - Baumann Bildung und Qualifizierung GmbH\source\PHP\Projekte\sudoku\classes\Db.php(15): PDO->__construct('mysql:dbname=su...', 'rorot', Object(SensitiveParameterValue))
+#1 C:\Users\ThomasWolting\OneDrive - BBQ - Baumann Bildung und Qualifizierung GmbH\source\PHP\Projekte\sudoku\classes\User.php(177): Db::getConnection()
+#2 C:\Users\ThomasWolting\OneDrive - BBQ - Baumann Bildung und Qualifizierung GmbH\source\PHP\Projekte\sudoku\controllers\ShowAuthenticationController.php(68): User->isLoginOK('Thomas', 'himmel')
+#3 C:\Users\ThomasWolting\OneDrive - BBQ - Baumann Bildung und Qualifizierung GmbH\source\PHP\Projekte\sudoku\index.php(22): ShowAuthenticationController->invoke(Array)
+#4 {main}

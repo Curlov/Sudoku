@@ -23,14 +23,15 @@
             </div>
         </div>
         <div class="board">
-
             <div class="container">
                 <div class="innerContainer">
-                    <h1>LOGOUT</h1>
-                    <h2>Bye bye!<br>See you next time.</h2>
+                    <h1>NOTIFICATION</h1>
+                    <h2>
+                        Ooops, there was a mistake!<br>
+                        The administrator has been informed.
+                    </h2>
                 </div>
             </div>
-
         </div>
         <div class ="footer">
             <p></p>

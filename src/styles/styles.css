@@ -7,6 +7,13 @@
     --button-hover-color: rgb(66, 15, 161);
     --cell-size: 50px;
 }
+.base
+{
+    display: block;
+    position: fixed;
+    top:100px;
+}
+
 
 .container
 {

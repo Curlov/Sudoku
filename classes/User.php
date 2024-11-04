@@ -83,11 +83,15 @@ class User
      */
     public function deleteObjectById(int $id): void
     {
-        $pdo = Db::getConnection();
-        $sql = 'DELETE FROM users WHERE id=:id';
-        $stmt = $pdo->prepare($sql);
-        $stmt->bindParam(':id', $id);
-        $stmt->execute();
+        try {
+            $pdo = Db::getConnection();
+            $sql = 'DELETE FROM users WHERE id=:id';
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindParam(':id', $id);
+            $stmt->execute();
+        } catch(Error $e) {
+            throw new Exception($e);
+        }
     }
 
     /**
@@ -98,13 +102,17 @@ class User
      */
     public function enterObject(string $username, string $country, string $passwordHash): void
     {
-        $pdo = Db::getConnection();
-        $sql = 'INSERT INTO users (username, country, passwordHash) VALUES (:username, :country, :passwordHash)';
-        $stmt = $pdo->prepare($sql);
-        $stmt->bindParam(':username', $username);
-        $stmt->bindParam(':country', $country);
-        $stmt->bindParam(':passwordHash', $passwordHash);
-        $stmt->execute();
+        try {
+            $pdo = Db::getConnection();
+            $sql = 'INSERT INTO users (username, country, passwordHash) VALUES (:username, :country, :passwordHash)';
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindParam(':username', $username);
+            $stmt->bindParam(':country', $country);
+            $stmt->bindParam(':passwordHash', $passwordHash);
+            $stmt->execute();
+        } catch(Error $e) {
+            throw new Exception($e);
+        }
     }
 
     /**
@@ -135,6 +143,7 @@ class User
      */
     public function updateObject(int $id, string $username, string $country, string $passwordHash): void
     {
+        try {
             $pdo = Db::getConnection();
             $sql = 'UPDATE users SET username=:username, country=:country, passwordHash=:passwordHash WHERE id=:id';
             $stmt = $pdo->prepare($sql);
@@ -143,6 +152,9 @@ class User
             $stmt->bindParam(':country', $country);
             $stmt->bindParam(':passwordHash', $passwordHash);
             $stmt->execute();
+        } catch(Error $e) {
+            throw new Exception($e);
+        }
     }
 
     function getObjectByName(string $username): object

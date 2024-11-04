@@ -24,16 +24,17 @@
         </div>
         <div class="board">
 
-            <div class="container">
-                <div class="innerContainer">
-                    <h1>LOGOUT</h1>
-                    <h2>Bye bye!<br>See you next time.</h2>
-                </div>
-            </div>
+                <?php
+                    $spiel->printBoard();
+                ?>
 
         </div>
         <div class ="footer">
-            <p></p>
+            <form>
+                <input class="button_G" style="width: 150px; margin-right: 10px; padding: 5px" type="submit" name="board" value="Create Board">
+                <input class="button_G" style="width: 150px; margin-right: 10px; padding: 5px" type="submit" name="mask" value="Create Mask">
+                <input class="button_G" style="width: 150px; margin-right: 10px; padding: 5px" type="submit" name="board" value="Check Game">
+            </form>
         </div>
     </div>
 </body>
