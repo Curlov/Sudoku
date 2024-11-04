@@ -8,9 +8,9 @@
     --cell-size: 50px;
 }
 
-#registerContainer
+.container
 {
-    /*display: none;*/
+    display: block;
     position: fixed;
     width: 400px;
     height: 430px;
@@ -42,20 +42,21 @@
     font-family: Bahnschrift, serif;
     font-size: 17px;
     width: 70%;
-    margin: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
     padding: 5px;
     box-sizing: border-box;
 }
 
 .innerContainer input[type="submit"] {
     font-family: Bahnschrift, serif;
-    font-size: 20px;
+    font-size: 17px;
     background-color: var(--button-color);
-
     border: none;
     border-radius: 5px;
     color: var(--board-bg-color);
-    margin-top: 15px;
+    margin-top: 5px;
+    padding: 7px 10px 5px;
     cursor: pointer;
 }
 
@@ -79,16 +80,17 @@
 .inputField {
     font-family: Bahnschrift;
     font-size: 10px;
-    width: 96px;
+    width: 102px;
 }
 
 .button-group {
     display: flex;
-    gap: 10px;
+    gap: 6px;
     margin-top: 3px;
 }
 
 .button_LuR {
+    width: 52px;
     font-family: Bahnschrift, serif;
     font-size: 11px;
     background-color: var(--button-color);
@@ -101,6 +103,48 @@
 .button_LuR:hover {
     background-color: var(--button-hover-color);
     color: azure;
+}
+
+.button_G {
+    font-family: Bahnschrift, serif;
+    font-size: 20px;
+    background-color: var(--button-color);
+    border: none;
+    border-radius: 5px;
+    color: var(--board-bg-color);
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+.button_G:hover {
+    background-color: var(--button-hover-color);
+    color: azure;
+}
+
+.button_GG {
+    width: 200px;
+    font-family: Bahnschrift, serif;
+    font-size: 30px;
+    background-color: var(--button-color);
+    border: none;
+    border-radius: 5px;
+    color: var(--board-bg-color);
+    margin-top: 25px;
+    cursor: pointer;
+}
+
+.button_GG:hover {
+    background-color: var(--button-hover-color);
+    color: azure;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
 }
 
 .header {
@@ -118,17 +162,13 @@
 
 .right {
     flex: auto;
-    text-align: right;
+    text-align: left;
     padding-bottom: 8px;
 }
 
-body {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-    min-height: 100vh;
-    margin: 0;
+.board {
+    width: 493px;
+    height: 494px;
 }
 
 .footer {
@@ -174,4 +214,24 @@ tr:nth-child(3n) .cell {
 
 tr:last-child .cell {
     border-bottom: 1px solid var(--cell-bg-color);
+}
+
+.font_G {
+    margin: 0;
+    padding: 5px 0px 0px 0px;
+    font-family: Bahnschrift, serif;
+    font-size: 20px;
+}
+
+.input-style {
+    text-align: left;
+    display: inline-block;
+    font-family: Bahnschrift, serif;
+    font-size: 10px;
+    width: 102px;
+    height: 12px;
+    margin-top: 1px;
+    padding: 2px 3px 2px 2px;
+    border: 1px solid var(--cell-bg-color);
+    border-radius: 2px;
 }

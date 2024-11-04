@@ -23,21 +23,21 @@
             </div>
         </div>
         <div class="board">
+
             <div class="container">
                 <div class="innerContainer">
-                    <h1>PROJECT WORK</h1>
-                    <h4>
-                        This website was created as part of my retraining as an IT
-                        specialist and offers a self-programmed Sudoku game. The aim
-                        was to combine playful and technical elements while applying
-                        the basics of web development. The realisation of the game
-                        not only emphasised the logical structure of Sudoku, but also
-                        deepened my insight into interactive functions, user
-                        interfaces and problem-solving in everyday programming.
-                    </h4>
-                    <h4>To play, log in.</h4>
+                    <h1>LEVEL SELECTION</h1><br>
+                       <form action="index.php" method="POST">
+                        <input type="hidden" name="action" value="showMain">
+                        <input type="hidden" name="area" value="play">
+                        <input type="hidden" name="view" value="play">
+                        <input style="font-size: x-large; width: 150px;" type="submit" value="Light"><br><br>
+                        <input style="font-size: x-large; width: 150px;" type="submit" value="Medium"><br><br>
+                        <input style="font-size: x-large; width: 150px;" type="submit" value="Heavy">
+                    </form>
                 </div>
             </div>
+
         </div>
         <div class ="footer">
             <p></p>

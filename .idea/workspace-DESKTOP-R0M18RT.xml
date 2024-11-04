@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="6a3a57fb-5935-4efb-8688-151bfa9d9b80" name="Changes" comment="gestartet">
+      <change beforePath="$PROJECT_DIR$/views/main/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/main/main.php" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2nvZZsodluUHne3e5YX5smCqLSq" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "view__herstellung",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/ThomasWolting/OneDrive - BBQ - Baumann Bildung und Qualifizierung GmbH/source/PHP/Projekte/sudoku/views/main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\ThomasWolting\OneDrive - BBQ - Baumann Bildung und Qualifizierung GmbH\source\PHP\Projekte\sudoku\views\main" />
+      <recent name="C:\Users\ThomasWolting\OneDrive - BBQ - Baumann Bildung und Qualifizierung GmbH\source\PHP\Projekte\sudoku\views\create" />
+      <recent name="C:\Users\ThomasWolting\OneDrive - BBQ - Baumann Bildung und Qualifizierung GmbH\source\PHP\Projekte\sudoku\views\play" />
+      <recent name="C:\Users\ThomasWolting\OneDrive - BBQ - Baumann Bildung und Qualifizierung GmbH\source\PHP\Projekte\sudoku" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ThomasWolting\OneDrive - BBQ - Baumann Bildung und Qualifizierung GmbH\source\PHP\Projekte\sudoku\src" />
+      <recent name="C:\Users\ThomasWolting\OneDrive - BBQ - Baumann Bildung und Qualifizierung GmbH\source\PHP\Projekte\sudoku\images" />
+      <recent name="C:\Users\ThomasWolting\OneDrive - BBQ - Baumann Bildung und Qualifizierung GmbH\source\PHP\Projekte\sudoku\views\main" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-PS-242.23339.16" />
+        <option value="bundled-php-predefined-a98d8de5180a-90914f2295cb-com.jetbrains.php.sharedIndexes-PS-242.23339.16" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6a3a57fb-5935-4efb-8688-151bfa9d9b80" name="Changes" comment="" />
+      <created>1729855568157</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1729855568157</updated>
+      <workItem from="1729855569179" duration="34533000" />
+      <workItem from="1729890262847" duration="12527000" />
+      <workItem from="1729942048577" duration="3064000" />
+      <workItem from="1729945973675" duration="1623000" />
+      <workItem from="1729948189300" duration="284000" />
+      <workItem from="1729948597622" duration="159000" />
+      <workItem from="1729948767931" duration="222000" />
+      <workItem from="1729973004491" duration="3921000" />
+      <workItem from="1729991374765" duration="569000" />
+      <workItem from="1730020235457" duration="24431000" />
+      <workItem from="1730044915721" duration="20372000" />
+      <workItem from="1730065484054" duration="3378000" />
+      <workItem from="1730132198005" duration="12826000" />
+      <workItem from="1730145057849" duration="4783000" />
+      <workItem from="1730153095751" duration="500000" />
+      <workItem from="1730154305433" duration="93000" />
+      <workItem from="1730187654934" duration="74000" />
+      <workItem from="1730189318308" duration="23139000" />
+    </task>
+    <task id="LOCAL-00001" summary="gestartet">
+      <option name="closed" value="true" />
+      <created>1730195661660</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1730195661660</updated>
+    </task>
+    <task id="LOCAL-00002" summary="gestartet">
+      <option name="closed" value="true" />
+      <created>1730213008623</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1730213008623</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="gestartet" />
+    <option name="LAST_COMMIT_MESSAGE" value="gestartet" />
+  </component>
+</project>

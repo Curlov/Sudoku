@@ -1,12 +1,15 @@
 <?php
 
+namespace SaftyFirst;
 class Container
 {
 
     public static function register($visible)
     {
+        $countryOptions = include "./src/countrys.php";
+
         echo '
-        <div id="registerContainer" style="display:'.$visible.'">
+        <div id="registerContainer" style="display:' . $visible . '">
             <div class="innerContainer">
                 <h1>REGISTRATION</h1>
                 <form action="index.php" method="post">
@@ -22,9 +25,9 @@ class Container
                         <input type="password" name="password"><br>
                     </label>
                     <label>COUNTRY<br>
-                        <select name="country"><br>
-                            <?php include "./src/countrys.php"; ?>
-                        </select>
+                        <select name="country">
+                           ' . $countryOptions . '
+                        </select><br>
                     </label>
                     <input type="submit" name="submit" value="Register">
                 </form>
