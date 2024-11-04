@@ -81,6 +81,15 @@ class Board
     }
 
     /**
+     * @param $board
+     * @return array
+     */
+    public function setBoard(array $board): void
+    {
+        $this->board = $board;
+    }
+
+    /**
      * @param $row
      * @param $col
      * @return int

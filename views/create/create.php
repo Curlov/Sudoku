@@ -25,20 +25,36 @@
         <div class="board">
 
                 <?php
-                    $spiel->printBoard();
+                    if (!empty($board) && count($board) > 1) {
+                            $newBoard = new Board();
+                            $newBoard->setBoard($board);
+                        } else {
+                            $newBoard = new Board();
+                        }
+                        $newBoard->printBoard();
                 ?>
 
         </div>
         <div class ="footer">
-            <form>
-                <input class="button_G" style="width: 150px; margin-right: 10px; padding: 5px" type="submit" name="board" value="Create Board">
-                <input class="button_G" style="width: 150px; margin-right: 10px; padding: 5px" type="submit" name="mask" value="Create Mask">
-                <input class="button_G" style="width: 150px; margin-right: 10px; padding: 5px" type="submit" name="board" value="Check Game">
+            <form action="index.php" method="post">
+                <input type="hidden" name="action" value="showCreateBoard">
+                <input type="hidden" name="area" value="create">
+                <input type="hidden" name="view" value="create">
+                <input class="button_G" style="width: 150px; margin-right: 10px; padding: 5px" type="submit" name="submit" value="Create Board">
+            </form>
+            <form action="index.php" method="post">
+                <input type="hidden" name="action" value="showCreate">
+                <input type="hidden" name="area" value="create">
+                <input type="hidden" name="view" value="create">
+                <input class="button_G" style="width: 150px; margin-right: 10px; padding: 5px" type="submit" name="submit" value="Create Mask">
+            </form>
+            <form action="index.php" method="post">
+                <input type="hidden" name="action" value="showCreate">
+                <input type="hidden" name="area" value="create">
+                <input type="hidden" name="view" value="create">
+                <input class="button_G" style="width: 150px; margin-right: 10px; padding: 5px" type="submit" name="submit" value="Check Game">
             </form>
         </div>
     </div>
 </body>
 </html>
-
-
-

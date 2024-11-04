@@ -13,11 +13,7 @@ class ShowCreateController extends BaseController
      */
     public function invoke(array $delivery = []): array
     {
-        if ($this->area == 'create' && $this->view == 'create') {
-            $spiel = new Board();
-            $spiel->backtracking();
-            return ['arrayName' => 'create', 'data' => [$spiel->getBoard()]];
-        }
+            return ['arrayName' => 'board', 'data' => $delivery];
     }
 
 }
