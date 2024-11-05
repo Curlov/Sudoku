@@ -1,3 +1,4 @@
+/* Kommentar */
 :root {
     --board-bg-color: rgb(0, 0, 0);
     --block-bg-color: rgb(60, 60, 60);
@@ -42,7 +43,6 @@
     padding: 20px;
 }
 
-/* Eingabefelder und Buttons einheitlich gestalten */
 .innerContainer input[type="text"],
 .innerContainer input[type="password"],
 .innerContainer select {
@@ -161,20 +161,21 @@ body {
 }
 
 .left {
+    margin-right: 9px;
     vertical-align: bottom;
     flex: auto;
-    padding: 0px;
     text-align: left;
 }
 
 .right {
+    margin-right: 3px;
     flex: auto;
     text-align: left;
     padding-bottom: 8px;
 }
 
 .board {
-    width: 493px;
+    width: 494px;
     height: 494px;
 }
 

@@ -66,7 +66,7 @@
             </div>
             <div style="display: flex; justify-content: center; margin-top: 10px; align-content: center">
                 <div class="slidecontainer">
-                    <input form="mask" type="range" min="2" max="8" value="5" class="slider" name="range" id="myRange">
+                    <input form="mask" type="range" min="2" max="8" value="<?php echo $_SESSION['range'] ?? 5; ?>" class="slider" name="range" id="myRange">
                 </div>
             </div>
             <div style="display: flex; justify-content: center; margin-top: 20px; align-content: center">

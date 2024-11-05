@@ -12,9 +12,6 @@ try {
         }});
 
     $request = $_SERVER['REQUEST_METHOD'] ==='POST' ? $_POST : $_GET;
-//    echo "<pre>";
-//    print_r($request);
-//    echo "</pre>";
     $dataBlock = new FilterData($request);
     $data = $dataBlock->getArray();
     $views = $dataBlock->getViews();
