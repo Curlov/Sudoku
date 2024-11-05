@@ -1,5 +1,4 @@
 <?php
-
 class Board
 {
     public int $solutionCount = 0;
@@ -8,10 +7,13 @@ class Board
      */
     private array $mask = [];
     /**
-     * @var array[]
+     * @var array
      */
     private array $board = [];
-
+    /**
+     * @var array
+     */
+    private array $sudoku = [];
     /**
      * @var array
      */
@@ -31,17 +33,41 @@ class Board
             9 => [1 => 0, 2 => 0, 3 => 0, 4 => 0, 5 => 0, 6 => 0, 7 => 0, 8 => 0, 9 => 0]
         ];
 
-        $this->field[1] = [[1, 1], [2, 1], [3, 1], [1, 2], [2, 2], [3, 2], [1, 3], [2, 3], [3, 3]];
-        $this->field[2] = [[4, 1], [5, 1], [6, 1], [4, 2], [5, 2], [6, 2], [4, 3], [5, 3], [6, 3]];
-        $this->field[3] = [[7, 1], [8, 1], [9, 1], [7, 2], [8, 2], [9, 2], [7, 3], [8, 3], [9, 3]];
+        $this->mask = [
+            1 => [1 => 0, 2 => 0, 3 => 0, 4 => 0, 5 => 0, 6 => 0, 7 => 0, 8 => 0, 9 => 0],
+            2 => [1 => 0, 2 => 0, 3 => 0, 4 => 0, 5 => 0, 6 => 0, 7 => 0, 8 => 0, 9 => 0],
+            3 => [1 => 0, 2 => 0, 3 => 0, 4 => 0, 5 => 0, 6 => 0, 7 => 0, 8 => 0, 9 => 0],
+            4 => [1 => 0, 2 => 0, 3 => 0, 4 => 0, 5 => 0, 6 => 0, 7 => 0, 8 => 0, 9 => 0],
+            5 => [1 => 0, 2 => 0, 3 => 0, 4 => 0, 5 => 0, 6 => 0, 7 => 0, 8 => 0, 9 => 0],
+            6 => [1 => 0, 2 => 0, 3 => 0, 4 => 0, 5 => 0, 6 => 0, 7 => 0, 8 => 0, 9 => 0],
+            7 => [1 => 0, 2 => 0, 3 => 0, 4 => 0, 5 => 0, 6 => 0, 7 => 0, 8 => 0, 9 => 0],
+            8 => [1 => 0, 2 => 0, 3 => 0, 4 => 0, 5 => 0, 6 => 0, 7 => 0, 8 => 0, 9 => 0],
+            9 => [1 => 0, 2 => 0, 3 => 0, 4 => 0, 5 => 0, 6 => 0, 7 => 0, 8 => 0, 9 => 0]
+        ];
 
-        $this->field[4] = [[1, 4], [2, 4], [3, 4], [1, 5], [2, 5], [3, 5], [1, 6], [2, 6], [3, 6]];
-        $this->field[5] = [[4, 4], [5, 4], [6, 4], [4, 5], [5, 5], [6, 5], [4, 6], [5, 6], [6, 6]];
-        $this->field[6] = [[7, 4], [8, 4], [9, 4], [7, 5], [8, 5], [9, 5], [7, 6], [8, 6], [9, 6]];
+        $this->sudoku = [
+            1 => [1 => 0, 2 => 0, 3 => 0, 4 => 0, 5 => 0, 6 => 0, 7 => 0, 8 => 0, 9 => 0],
+            2 => [1 => 0, 2 => 0, 3 => 0, 4 => 0, 5 => 0, 6 => 0, 7 => 0, 8 => 0, 9 => 0],
+            3 => [1 => 0, 2 => 0, 3 => 0, 4 => 0, 5 => 0, 6 => 0, 7 => 0, 8 => 0, 9 => 0],
+            4 => [1 => 0, 2 => 0, 3 => 0, 4 => 0, 5 => 0, 6 => 0, 7 => 0, 8 => 0, 9 => 0],
+            5 => [1 => 0, 2 => 0, 3 => 0, 4 => 0, 5 => 0, 6 => 0, 7 => 0, 8 => 0, 9 => 0],
+            6 => [1 => 0, 2 => 0, 3 => 0, 4 => 0, 5 => 0, 6 => 0, 7 => 0, 8 => 0, 9 => 0],
+            7 => [1 => 0, 2 => 0, 3 => 0, 4 => 0, 5 => 0, 6 => 0, 7 => 0, 8 => 0, 9 => 0],
+            8 => [1 => 0, 2 => 0, 3 => 0, 4 => 0, 5 => 0, 6 => 0, 7 => 0, 8 => 0, 9 => 0],
+            9 => [1 => 0, 2 => 0, 3 => 0, 4 => 0, 5 => 0, 6 => 0, 7 => 0, 8 => 0, 9 => 0]
+        ];
 
-        $this->field[7] = [[1, 7], [2, 7], [3, 7], [1, 8], [2, 8], [3, 8], [1, 9], [2, 9], [3, 9]];
-        $this->field[8] = [[4, 7], [5, 7], [6, 7], [4, 8], [5, 8], [6, 8], [4, 9], [5, 9], [6, 9]];
-        $this->field[9] = [[7, 7], [8, 7], [9, 7], [7, 8], [8, 8], [9, 8], [7, 9], [8, 9], [9, 9]];
+        $this->field[1] = [1 => [1, 1], 2 => [2, 1], 3 => [3, 1], 4 => [1, 2], 5 => [2, 2], 6 => [3, 2], 7 => [1, 3], 8 => [2, 3], 9 => [3, 3]];
+        $this->field[2] = [1 => [4, 1], 2 => [5, 1], 3 => [6, 1], 4 => [4, 2], 5 => [5, 2], 6 => [6, 2], 7 => [4, 3], 8 => [5, 3], 9 => [6, 3]];
+        $this->field[3] = [1 => [7, 1], 2 => [8, 1], 3 => [9, 1], 4 => [7, 2], 5 => [8, 2], 6 => [9, 2], 7 => [7, 3], 8 => [8, 3], 9 => [9, 3]];
+
+        $this->field[4] = [1 => [1, 4], 2 => [2, 4], 3 => [3, 4], 4 => [1, 5], 5 => [2, 5], 6 => [3, 5], 7 => [1, 6], 8 => [2, 6], 9 => [3, 6]];
+        $this->field[5] = [1 => [4, 4], 2 => [5, 4], 3 => [6, 4], 4 => [4, 5], 5 => [5, 5], 6 => [6, 5], 7 => [4, 6], 8 => [5, 6], 9 => [6, 6]];
+        $this->field[6] = [1 => [7, 4], 2 => [8, 4], 3 => [9, 4], 4 => [7, 5], 5 => [8, 5], 6 => [9, 5], 7 => [7, 6], 8 => [8, 6], 9 => [9, 6]];
+
+        $this->field[7] = [1 => [1, 7], 2 => [2, 7], 3 => [3, 7], 4 => [1, 8], 5 => [2, 8], 6 => [3, 8], 7 => [1, 9], 8 => [2, 9], 9 => [3, 9]];
+        $this->field[8] = [1 => [4, 7], 2 => [5, 7], 3 => [6, 7], 4 => [4, 8], 5 => [5, 8], 6 => [6, 8], 7 => [4, 9], 8 => [5, 9], 9 => [6, 9]];
+        $this->field[9] = [1 => [7, 7], 2 => [8, 7], 3 => [9, 7], 4 => [7, 8], 5 => [8, 8], 6 => [9, 8], 7 => [7, 9], 8 => [8, 9], 9 => [9, 9]];
     }
 
     /**
@@ -66,11 +92,89 @@ class Board
         return $fieldNumber;
     }
 
-    public function setMask(array $mask): void
+    /**
+     * @param $Row
+     * @param $col
+     * @return void
+     */
+    public function setSudokuRowCol($Row, $col, $value): void
     {
-        $this->mask = $mask;
-        $this->board = $mask;
+        $this->sudoku[$Row][$col] = $value;
     }
+
+    /**
+     * @param $Row
+     * @param $col
+     * @return int
+     */
+    public function getSudokuRowCol($Row, $col): int
+    {
+        return $this->sudoku[$Row][$col];
+    }
+
+    /**
+     * @param $Row
+     * @param $col
+     * @return void
+     */
+    public function setMaskRowCol($Row, $col, $value): void
+    {
+        $this->mask[$Row][$col] = $value;
+    }
+
+    /**
+     * @param $Row
+     * @param $col
+     * @return int
+     */
+    public function getMaskRowCol($Row, $col): int
+    {
+        return $this->mask[$Row][$col];
+    }
+
+    /**
+     * @param $field
+     * @return mixed
+     */
+    public function getField(int $field): array
+    {
+        return $this->field[$field];
+    }
+
+    /**
+     * @return array|array[]
+     */
+    public function getSudoku(): array
+    {
+        return $this->sudoku;
+    }
+
+    /**
+     * @param array $board
+     * @return void
+     */
+    public function setSudoku(array $board): void
+    {
+        $this->sudoku = $board;
+    }
+
+    /**
+     * @return array|array[]
+     */
+    public function getMask(): array
+    {
+        return $this->mask;
+    }
+
+    /**
+     * @param array $mask
+     * @return void
+     */
+//    public function setMask(array $mask): void
+//    {
+//        $this->mask = $mask;
+//        $this->board = $mask;
+//    }
 
     /**
      * @return array[]
@@ -122,7 +226,7 @@ class Board
             for ($j = 1; $j <= 9; $j++) {
                 $celle = ($i-1)*9 + $j;
                 echo '<td class="cell" ' . (($this->mask[$i][$j] ?? 0) != 0 ? 'style="color:black;"' : '') .
-                     ' id="' . $celle . '">' . (($this->board[$i][$j] != 0) ? $this->board[$i][$j] : '&nbsp;') . '</td>';
+                     ' id="' . $celle . '">' . (($this->sudoku[$i][$j] != 0) ? $this->sudoku[$i][$j] : '&nbsp;') . '</td>';
             }
             echo '</tr>';
         }
@@ -237,11 +341,7 @@ class Board
 
         for ($number = 1; $number <= 9; $number++) {
 
-            // Falls keine Maske übergeben wurde, verwenden wir Zufallszahlen
-            // für eine bessere Verteilung der Zahlen
-            if (empty($this->mask)) {
-                $number = random_int(1, 9);
-            }
+            $number = random_int(1, 9);
 
             if ($this->numberAllowed($row, $col, $number)) {
                 $this->setNumber($row, $col, $number);
@@ -278,6 +378,52 @@ class Board
         return false;
     }
 
+    /**
+     * @param int $range
+     * @return array
+     */
+    public function randomFields(int $range): array
+    {
+        $fields = [];
+        $min = $range - 1;
+        $max = $range + 1;
+        $randRange = rand($min, $max);
+        for ($f = 1; $f <= $randRange; $f++) {
+            $z = rand(1, 9);
+            if (!in_array($z, $fields)) {
+                $fields[] = $z;
+            } else {
+            $f--;
+            }
+        }
+        return $fields;
+    }
 
+    public function createMask(int $range): void
+    {
+        for ($field = 1; $field <= 9; $field++) {
+            $cells = $this->randomFields($range);
+            foreach ($cells as $cell) {
+                list($row, $col) = $this->field[$field][$cell];
+                //$value = $_SESSION['board'][$row][$col];
+                //echo $row." - ".$col." : ".$value."<br>";
+                $this->setMaskRowCol($row, $col, 1);
+            }
+        }
+    }
 
+    public function createSudoku(array $board, array $mask): array
+    {
+        for ($row = 1; $row <= 9; $row++) {
+            for ($col = 1; $col <= 9; $col++) {
+                if ($_SESSION['mask'][$row][$col] == 1) {
+                    $value = $this->getBoardRowCol($row, $col);
+                    $this->setSudokuRowCol($row, $col, $value);
+                } else {
+                    $this->setSudokuRowCol($row, $col, 0);
+                }
+            }
+        }
+        return $this->getSudoku();
+    }
 }

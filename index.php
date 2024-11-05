@@ -12,11 +12,14 @@ try {
         }});
 
     $request = $_SERVER['REQUEST_METHOD'] ==='POST' ? $_POST : $_GET;
+//    echo "<pre>";
+//    print_r($request);
+//    echo "</pre>";
     $dataBlock = new FilterData($request);
     $data = $dataBlock->getArray();
     $views = $dataBlock->getViews();
 
-    if ($views['action'] == 'showMain' || $views['action'] == 'showCreateBoard' || $views['action'] == 'showCreate' || $views['action'] == 'showAuthentication') {
+    if ($views['action'] == 'showMain' || $views['action'] == 'showCreateBoard' || $views['action'] == 'showCreateMask' || $views['action'] == 'showCreate' || $views['action'] == 'showAuthentication') {
         $controllerName = ucfirst($views['action']) . 'Controller';
         $controller = new $controllerName($views['area'], $views['view']);
         $array = $controller->invoke($data);

@@ -21,7 +21,7 @@ class FilterData
         $this->array = [];
         $this->views = [];
 
-        $fields = ['view', 'area', 'action', 'username', 'id', 'country', 'password', 'submit'];
+        $fields = ['view', 'area', 'action', 'username', 'id', 'country', 'password', 'submit', 'range'];
 
         foreach ($fields as $field) {
             if ($field === 'id') {
@@ -32,8 +32,6 @@ class FilterData
                 $this->views[$field] = $data[$field] ?? 'main';
             } elseif ($field === 'action') {
                 $this->views[$field] = $data[$field] ?? 'showMain';
-            } elseif ($field === 'submit') {
-                $this->views[$field] = $data[$field] ?? 'unknown';
             } else {
                 if (!empty($this->data[$field])) {
                     $this->array[$field] = $data[$field];

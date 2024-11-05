@@ -1,6 +1,6 @@
 <?php
 
-class ShowCreateController extends BaseController
+class ShowCreateMaskController extends BaseController
 {
     public function __construct(string $area,string $view)
     {
@@ -13,8 +13,11 @@ class ShowCreateController extends BaseController
      */
     public function invoke(array $delivery = []): array
     {
-            $board = (new Board())->getBoard();
-            return ['arrayName' => 'board', 'data' => $board];
+        $newMask = new Board();
+        $newMask->createMask($delivery['range']);
+        $_SESSION['mask'] = $newMask->getMask();
+
+        return ['arrayName' => 'mask', 'data' => $_SESSION['mask']];
     }
 
 }
