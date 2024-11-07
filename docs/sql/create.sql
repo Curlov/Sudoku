@@ -18,3 +18,17 @@ create table users
 ALTER TABLE users
     ADD PRIMARY KEY (id);
 ALTER TABLE users MODIFY COLUMN id INT AUTO_INCREMENT;
+
+
+create table sudokus
+(
+    id      int      not null,
+    board   longtext collate utf8mb4_bin not null   check (json_valid(`board`)),
+    mask    longtext collate utf8mb4_bin not null   check (json_valid(`mask`)),
+    level   int                          not null
+);
+
+# CONSTRAINTS
+ALTER TABLE sudokus
+    ADD PRIMARY KEY (id);
+ALTER TABLE sudokus MODIFY COLUMN id INT AUTO_INCREMENT;

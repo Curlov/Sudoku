@@ -17,6 +17,7 @@ class ShowCreateCheckController extends BaseController
         $newBoard->setBoard($_SESSION['sudoku']);
         $newBoard->solutionsCount();
         $_SESSION['solutions'] = $newBoard->solutionCount;
+
         return ['arrayName' => 'solutionCount', 'data' => [$newBoard->solutionCount]];
     }
 

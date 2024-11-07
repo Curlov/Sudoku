@@ -23,7 +23,8 @@ try {
 
     if ($views['action'] == 'showMain' || $views['action'] == 'showCreateBoard' || $views['action'] == 'showCreateCheck' ||
         $views['action'] == 'showCreateMask' || $views['action'] == 'showCreate' || $views['action'] == 'showCreateSafe' ||
-        $views['action'] == 'showAuthentication' || $views['action'] == 'showPlayLevelSelection') {
+        $views['action'] == 'showAuthentication' || $views['action'] == 'showPlayLevelSelection' ||
+        $views['action'] == 'showPlay') {
 
         $controllerName = ucfirst($views['action']) . 'Controller';
         $controller = new $controllerName($views['area'], $views['view']);

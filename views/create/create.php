@@ -46,7 +46,7 @@
         </div>
         <div class ="footer">
             <div class="button-group">
-                <form action="index.php" method="post">
+                <form id="board" action="index.php" method="post">
                     <input type="hidden" name="action" value="showCreateBoard">
                     <input type="hidden" name="area" value="create">
                     <input type="hidden" name="view" value="create">
