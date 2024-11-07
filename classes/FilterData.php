@@ -21,13 +21,13 @@ class FilterData
         $this->array = [];
         $this->views = [];
 
-        $fields = ['view', 'area', 'action', 'username', 'id', 'country', 'password', 'submit', 'range'];
+        $fields = ['view', 'area', 'action', 'username', 'id', 'country', 'password', 'submit', 'range', 'solutions'];
 
         foreach ($fields as $field) {
             if ($field === 'id') {
                 $this->array[$field] = $data[$field] ?? 0;
             } elseif ($field === 'view') {
-                $this->views[$field] = $data[$field] ?? 'main';
+                $this->views[$field] = $data[$field] ?? (isset($_SESSION['username']) ? 'login' : 'main');
             } elseif ($field === 'area') {
                 $this->views[$field] = $data[$field] ?? 'main';
             } elseif ($field === 'action') {

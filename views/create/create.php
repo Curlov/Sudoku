@@ -39,6 +39,7 @@
                         $board = $_SESSION['board'];
                         $newBoard->setSudoku($board);
                     }
+                    $_SESSION['sudoku'] = $board;
                     $newBoard->printBoard();
                 ?>
 
@@ -58,7 +59,7 @@
                     <input class="button_G" style="width: 150px; margin-right: 5px; padding: 5px" type="submit" name="submit" value="Create Mask">
                 </form>
                 <form action="index.php" method="post">
-                    <input type="hidden" name="action" value="showCreate">
+                    <input type="hidden" name="action" value="showCreateCheck">
                     <input type="hidden" name="area" value="create">
                     <input type="hidden" name="view" value="create">
                     <input class="button_G" style="width: 150px; margin-right: 5px; padding: 5px" type="submit" name="submit" value="Check Game">
@@ -66,15 +67,18 @@
             </div>
             <div style="display: flex; justify-content: center; margin-top: 10px; align-content: center">
                 <div class="slidecontainer">
-                    <input form="mask" type="range" min="2" max="8" value="<?php echo $_SESSION['range'] ?? 5; ?>" class="slider" name="range" id="myRange">
+                    <input form="mask" type="range" min="2" max="4" value="<?php echo $_SESSION['range'] ?? 3; ?>" class="slider" name="range" id="myRange">
                 </div>
+            </div>
+            <div>
+                <h2>Solutions  <?php echo $_SESSION['solutions'] ?? '0'; ?> </h2>
             </div>
             <div style="display: flex; justify-content: center; margin-top: 20px; align-content: center">
                 <form action="index.php" method="post">
-                    <input type="hidden" name="action" value="showSafeGame">
+                    <input type="hidden" name="action" value="showCreateSafe">
                     <input type="hidden" name="area" value="create">
-                    <input type="hidden" name="view" value="create">
-                    <input class="button_G" style="width: 150px; margin-right: 5px; padding: 5px" type="submit" name="submit" value="Safe Game">
+                    <input type="hidden" name="view" value="safeSudoku">
+                    <input class="button_G" style="width: 150px; margin-right: 5px; padding: 5px" type="submit" name="submit" value="Safe Game" <?php echo (isset($solutionCount[0]) && $solutionCount[0] === 1) ? '' : 'disabled'; ?>>
                 </form>
             </div>
         </div>

@@ -6,6 +6,7 @@
     --font-color: rgb(198, 152, 250);
     --button-color: rgb(198, 152, 250);
     --button-hover-color: rgb(66, 15, 161);
+    --button-disable-color: rgb(101, 101, 101);
     --cell-size: 50px;
 }
 .base
@@ -126,6 +127,12 @@
 .button_G:hover {
     background-color: var(--button-hover-color);
     color: azure;
+}
+
+.button_G:disabled {
+    background-color: var(--button-disable-color);
+    color: azure;
+    cursor: auto;
 }
 
 .button_GG {

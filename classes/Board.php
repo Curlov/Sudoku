@@ -33,29 +33,8 @@ class Board
             9 => [1 => 0, 2 => 0, 3 => 0, 4 => 0, 5 => 0, 6 => 0, 7 => 0, 8 => 0, 9 => 0]
         ];
 
-        $this->mask = [
-            1 => [1 => 0, 2 => 0, 3 => 0, 4 => 0, 5 => 0, 6 => 0, 7 => 0, 8 => 0, 9 => 0],
-            2 => [1 => 0, 2 => 0, 3 => 0, 4 => 0, 5 => 0, 6 => 0, 7 => 0, 8 => 0, 9 => 0],
-            3 => [1 => 0, 2 => 0, 3 => 0, 4 => 0, 5 => 0, 6 => 0, 7 => 0, 8 => 0, 9 => 0],
-            4 => [1 => 0, 2 => 0, 3 => 0, 4 => 0, 5 => 0, 6 => 0, 7 => 0, 8 => 0, 9 => 0],
-            5 => [1 => 0, 2 => 0, 3 => 0, 4 => 0, 5 => 0, 6 => 0, 7 => 0, 8 => 0, 9 => 0],
-            6 => [1 => 0, 2 => 0, 3 => 0, 4 => 0, 5 => 0, 6 => 0, 7 => 0, 8 => 0, 9 => 0],
-            7 => [1 => 0, 2 => 0, 3 => 0, 4 => 0, 5 => 0, 6 => 0, 7 => 0, 8 => 0, 9 => 0],
-            8 => [1 => 0, 2 => 0, 3 => 0, 4 => 0, 5 => 0, 6 => 0, 7 => 0, 8 => 0, 9 => 0],
-            9 => [1 => 0, 2 => 0, 3 => 0, 4 => 0, 5 => 0, 6 => 0, 7 => 0, 8 => 0, 9 => 0]
-        ];
-
-        $this->sudoku = [
-            1 => [1 => 0, 2 => 0, 3 => 0, 4 => 0, 5 => 0, 6 => 0, 7 => 0, 8 => 0, 9 => 0],
-            2 => [1 => 0, 2 => 0, 3 => 0, 4 => 0, 5 => 0, 6 => 0, 7 => 0, 8 => 0, 9 => 0],
-            3 => [1 => 0, 2 => 0, 3 => 0, 4 => 0, 5 => 0, 6 => 0, 7 => 0, 8 => 0, 9 => 0],
-            4 => [1 => 0, 2 => 0, 3 => 0, 4 => 0, 5 => 0, 6 => 0, 7 => 0, 8 => 0, 9 => 0],
-            5 => [1 => 0, 2 => 0, 3 => 0, 4 => 0, 5 => 0, 6 => 0, 7 => 0, 8 => 0, 9 => 0],
-            6 => [1 => 0, 2 => 0, 3 => 0, 4 => 0, 5 => 0, 6 => 0, 7 => 0, 8 => 0, 9 => 0],
-            7 => [1 => 0, 2 => 0, 3 => 0, 4 => 0, 5 => 0, 6 => 0, 7 => 0, 8 => 0, 9 => 0],
-            8 => [1 => 0, 2 => 0, 3 => 0, 4 => 0, 5 => 0, 6 => 0, 7 => 0, 8 => 0, 9 => 0],
-            9 => [1 => 0, 2 => 0, 3 => 0, 4 => 0, 5 => 0, 6 => 0, 7 => 0, 8 => 0, 9 => 0]
-        ];
+        $this->mask = $this->board;
+        $this->sudoku = $this->board;
 
         $this->field[1] = [1 => [1, 1], 2 => [2, 1], 3 => [3, 1], 4 => [1, 2], 5 => [2, 2], 6 => [3, 2], 7 => [1, 3], 8 => [2, 3], 9 => [3, 3]];
         $this->field[2] = [1 => [4, 1], 2 => [5, 1], 3 => [6, 1], 4 => [4, 2], 5 => [5, 2], 6 => [6, 2], 7 => [4, 3], 8 => [5, 3], 9 => [6, 3]];
@@ -370,7 +349,7 @@ class Board
             if ($this->numberAllowed($row, $col, $number)) {
                 $this->setNumber($row, $col, $number);
 
-                $this->backtracking();
+                $this->solutionsCount();
 
                 $this->setNumber($row, $col, 0);
             }
@@ -385,8 +364,8 @@ class Board
     public function randomFields(int $range): array
     {
         $fields = [];
-        $min = $range - 1;
-        $max = $range + 1;
+        $min = $range;
+        $max = $range + 3;
         $randRange = rand($min, $max);
         for ($f = 1; $f <= $randRange; $f++) {
             $z = rand(1, 9);
@@ -405,8 +384,6 @@ class Board
             $cells = $this->randomFields($range);
             foreach ($cells as $cell) {
                 list($row, $col) = $this->field[$field][$cell];
-                //$value = $_SESSION['board'][$row][$col];
-                //echo $row." - ".$col." : ".$value."<br>";
                 $this->setMaskRowCol($row, $col, 1);
             }
         }
@@ -425,5 +402,31 @@ class Board
             }
         }
         return $this->getSudoku();
+    }
+
+    public function enterObject(string $board, string $mask, int $range): void
+    {
+        try {
+            $pdo = Db::getConnection();
+            $sql = 'INSERT INTO sudokus (board, mask, level) VALUES (:board, :mask, :level)';
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindParam(':board', $board);
+            $stmt->bindParam(':mask', $mask);
+            $stmt->bindParam(':level', $range);
+            $stmt->execute();
+        } catch(Error $e) {
+            throw new Exception($e);
+        }
+    }
+
+    function getRandomObjectByLevel(int $level): array
+    {
+        $pdo = Db::getConnection();
+        $sql = 'SELECT * FROM sudokus WHERE level=:level ORDER BY RAND() LIMIT 1';
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindParam(':level', $level);
+        $stmt->execute();
+        $data = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $data;
     }
 }
