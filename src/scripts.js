@@ -28,7 +28,7 @@ function toggleNote() {
 function highlightRow(row) {
     const rows = table.querySelectorAll('tr');
     rows[row - 1].querySelectorAll('.cell').forEach(cell => {
-        cell.style.backgroundColor = 'rgb(231, 231, 231)';
+        cell.style.backgroundColor = 'rgb(235, 235, 235)';
     });
 }
 
@@ -37,13 +37,38 @@ function highlightColumn(col) {
     const cells = table.querySelectorAll('td');
     cells.forEach(cell => {
         if (parseInt(cell.getAttribute('data-cell')) % 10 === col) {
-            cell.style.backgroundColor = 'rgb(231, 231, 231)';
+            cell.style.backgroundColor = 'rgb(235, 235, 235)';
+        }
+    });
+}
+
+// Funktion zum Markieren eines Feldes
+function highlightField(lastField) {
+    for (const cellKey in field[lastField]) {
+        const [x, y] = field[lastField][cellKey];
+
+        const cellSelector = `[data-cell="${x}${y}"]`;
+        const cellElement = document.querySelector(cellSelector);
+
+        if (cellElement) {
+            cellElement.style.backgroundColor = 'rgb(235, 235, 235)';
+        }
+    }
+}
+
+// Funktion zum Markieren von Zellen mit derselben Zahl
+function highlightSameNumberCells(cellValue) {
+    const allCells = table.querySelectorAll('.cell');
+    allCells.forEach(cell => {
+        const value = cell.textContent.trim();
+        if (value === cellValue) {
+            cell.style.backgroundColor = 'rgb(230, 211, 250)';
         }
     });
 }
 
 // Funktion zum Entfernen der Markierung der Zeilen und Spalten
-function removeRowColHighlight() {
+function removeHighlight() {
     const rows = table.querySelectorAll('tr');
     rows.forEach(row => {
         row.querySelectorAll('.cell').forEach(cell => {
@@ -64,21 +89,22 @@ table.addEventListener('click', function(event) {
     const cell = event.target.closest('.cell');
 
     if (cell) {
+        const cellValue = cell.textContent.trim();
+
         memory = cell.getAttribute('data-cell');
         hiddenField.value = memory;
 
         // Berechne Zeile und Spalte und Feld
         lastClickedRow = Math.floor(memory / 10);
         lastClickedCol = memory % 10;
-        lastField = Math.floor((lastClickedRow - 1) / 3) * 3 + Math.floor((lastClickedCol - 1) / 3) + 1;
+        lastField = Math.floor((lastClickedCol - 1) / 3) * 3 + Math.floor((lastClickedRow - 1) / 3) + 1;
 
         console.log(lastField);
 
-        // Entferne Markierung der vorherigen Zelle und Zeile/Spalte
         if (lastClickedCell) {
             lastClickedCell.style.backgroundColor = '';
-            // Entferne die Hintergrundfarbe der gesamten Zeile und Spalte
-            removeRowColHighlight();
+            // Entferne die Hintergrundfarbe der gesamten Tabelle
+            removeHighlight();
         }
 
         // Markiere alle Zellen in der gleichen Zeile
@@ -87,11 +113,17 @@ table.addEventListener('click', function(event) {
         // Markiere alle Zellen in der gleichen Spalte
         highlightColumn(lastClickedCol);
 
+        //Markiere alle Zellen im Feld
+        highlightField(lastField);
+
         // Markiere die angeklickte Zelle
         cell.style.backgroundColor = 'rgb(230, 211, 250)';
         lastClickedCell = cell;
 
+        // Überprüfe, ob in der Zelle eine Zahl steht, und markiere alle Zellen mit der gleichen Zahl
+        if (cellValue && !isNaN(cellValue)) {  // Prüfen, ob es eine Zahl ist
+            highlightSameNumberCells(cellValue);
+        }
     }
-
 });
 
