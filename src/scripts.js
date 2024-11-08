@@ -28,7 +28,7 @@ function toggleNote() {
 function highlightRow(row) {
     const rows = table.querySelectorAll('tr');
     rows[row - 1].querySelectorAll('.cell').forEach(cell => {
-        cell.style.backgroundColor = 'rgb(235, 235, 235)';
+        cell.style.backgroundColor = 'rgb(230, 230, 230)';
     });
 }
 
@@ -37,7 +37,7 @@ function highlightColumn(col) {
     const cells = table.querySelectorAll('td');
     cells.forEach(cell => {
         if (parseInt(cell.getAttribute('data-cell')) % 10 === col) {
-            cell.style.backgroundColor = 'rgb(235, 235, 235)';
+            cell.style.backgroundColor = 'rgb(230, 230, 230)';
         }
     });
 }
@@ -51,7 +51,7 @@ function highlightField(lastField) {
         const cellElement = document.querySelector(cellSelector);
 
         if (cellElement) {
-            cellElement.style.backgroundColor = 'rgb(235, 235, 235)';
+            cellElement.style.backgroundColor = 'rgb(230, 230, 230)';
         }
     }
 }

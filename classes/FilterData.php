@@ -21,7 +21,7 @@ class FilterData
         $this->array = [];
         $this->views = [];
 
-        $fields = ['view', 'area', 'action', 'username', 'id', 'country', 'password', 'submit', 'range', 'solutions', 'note', 'field'];
+        $fields = ['view', 'area', 'action', 'username', 'id', 'country', 'password', 'submit', 'range', 'solutions', 'note', 'field', 'number'];
 
         foreach ($fields as $field) {
             if ($field === 'id') {

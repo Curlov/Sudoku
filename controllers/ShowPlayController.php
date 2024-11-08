@@ -12,9 +12,6 @@ class ShowPlayController extends BaseController
      */
     public function invoke(array $delivery = []) : array
     {
-        echo "<pre><br><br><br><br><br><br><br><br><br><br><br><br><br><br>";
-        print_r($delivery);
-        echo "</pre>";
 
         if(isset($delivery['note']) && $delivery['note'] == 1){
             $_SESSION['note'] = 1;
@@ -22,10 +19,43 @@ class ShowPlayController extends BaseController
             $_SESSION['note'] = 0;
         }
 
-        $mask = $_SESSION['mask'];
-        $board = $_SESSION['board'];
-        $faulty = $_SESSION['faulty'];
-        $sudoku = $_SESSION['sudoku'];
+        $game = new Game();
+
+        if (isset($delivery['field']) && isset($delivery['number'])) {
+            list($row, $col) = $game->getPosRowCol($delivery['field']);
+            if (!isset($delivery['note'])) {
+                if ($game->isCellEditable($row, $col)) {
+                    if ($game->isNumberCorrect($row, $col, $delivery['number'])) {
+                        $game->setNumberByRowCol($row, $col, $delivery['number']);
+                    } else {
+                        $game->setNumberByRowCol($row, $col, $delivery['number']);
+                        $game->addFaulty();
+                    }
+                }
+            } elseif ($delivery['note'] == 1) {
+                $game->addNote($row, $col, $delivery['number']);
+            }
+
+        } elseif (isset($delivery['field']) && isset($delivery['submit']) && $delivery['submit'] == 'Erase') {
+            list($row, $col) = $game->getPosRowCol($delivery['field']);
+            if (!isset($delivery['note'])) {
+                if ($game->isCellEditable($row, $col)) {
+                    $game->deleteNumberByRowCol($row, $col);
+                }
+            } elseif ($delivery['note'] == 1) {
+                $game->deleteLastNote($row, $col);
+            }
+        }
+
+        $game->setSessions();
+
+        if ($game->allNumbersCorrectSet()){
+            $this->view = 'won';
+        }
+
+        if ($game->getFaulty() >= 3) {
+            $this->view = 'lose';
+        }
 
         return ['arrayName' => 'nothing', 'data' => $delivery];
     }
