@@ -9,6 +9,8 @@
     --button-hover-color: rgb(66, 15, 161);
     --button-disable-color: rgb(101, 101, 101);
     --color-white: rgb(255, 255, 255);
+    --color-pink: #9D1798;
+    --color-defRed: #D3355A;
     --cell-size: 50px;
 }
 .base
@@ -220,6 +222,16 @@ body {
     margin: 0;
 }
 
+.gameBody {
+    visibility: hidden;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
 .header {
     display: flex;
     align-items: flex-end;
@@ -353,7 +365,7 @@ tr:last-child .cell {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
-    display: none; /*grid;*/
+    display: grid; /*grid;*/
 }
 
 .microcell {
@@ -363,6 +375,6 @@ tr:last-child .cell {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 11px;
     color: var(--cell-bg-color);
-    display: none; /*inline-grid;*/
+    display: inline-grid;
 }
 

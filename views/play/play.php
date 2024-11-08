@@ -8,8 +8,7 @@
     <link rel="stylesheet" href="./src/styles/styles.css">
     <title>PROJECT Sudoku</title>
 </head>
-<body>
-
+<body class="gameBody">
     <div class="base">
         <div class="header">
             <div class="left">
@@ -64,7 +63,7 @@
            </form>
         </div>
     </div>
-    <script src="/src/scripts.js"></script>
+    <script src="/src/scripts/gameScripts.js"></script>
 </body>
 </html>
 

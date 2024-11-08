@@ -30,10 +30,12 @@ class ShowPlayLevelSelectionController extends BaseController
         $Bc->setBoard($board);
         $mask = json_decode($data['mask'], true);
 
+        // bringt Fehler (new Game())->setStartTime();
         $_SESSION['mask'] = $mask;
         $_SESSION['board'] = $board;
         $_SESSION['sudoku'] = $Bc->createSudoku($board, $mask);
         $_SESSION['faulty'] = 0;
+        $_SESSION['field'] = 0;
         $_SESSION['notes'] = [
             1 => [1 => [], 2 => [], 3 => [], 4 => [], 5 => [], 6 => [], 7 => [], 8 => [], 9 => []],
             2 => [1 => [], 2 => [], 3 => [], 4 => [], 5 => [], 6 => [], 7 => [], 8 => [], 9 => []],

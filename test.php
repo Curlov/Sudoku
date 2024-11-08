@@ -1,38 +1,27 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-
-    </style>
-</head>
-<body>
-<form id="toggleForm" action="index.php" method="post">
-    <input type="hidden" name="note" id="noteHidden" value="<?php echo isset($_SESSION['note']) ? $_SESSION['note'] : 0; ?>">
-    <button type="button" id="toggleButton" class="buttonAction2">
-        <?php echo isset($_SESSION['note']) && $_SESSION['note'] == 1 ? 'Aktiviert' : 'Deaktiviert'; ?>
-    </button>
-    <input type="submit" value="Speichern">
-</form>
-
-<script>
-    const toggleButton = document.getElementById('toggleButton');
-    const noteHidden = document.getElementById('noteHidden');
-
-    toggleButton.addEventListener('click', () => {
-        if (noteHidden.value == 1) {
-            noteHidden.value = 0;
-            toggleButton.textContent = 'Deaktiviert';
-            toggleButton.classList.remove('active'); // Optional, falls du eine "aktive" Klasse hast
-        } else {
-            noteHidden.value = 1;
-            toggleButton.textContent = 'Aktiviert';
-            toggleButton.classList.add('active');
+public function printBoard(): void
+{
+echo '<div class="board">';
+    echo '<table class="table">';
+        for ($i = 1; $i <= 9; $i++) {
+        echo '<tr>';
+            for ($j = 1; $j <= 9; $j++) {
+            // $celle = ($i-1)*9 + $j;
+            echo '<td class="cell" ' . (($this->sudoku[$i][$j] != 0 && $this->board[$i][$j] != $this->sudoku[$i][$j] && $this->mask[$i][$j] == 0) ? 'style="color:red;"' : '') .
+            (($this->sudoku[$i][$j] != 0 && $this->board[$i][$j] == $this->sudoku[$i][$j] && $this->mask[$i][$j] == 0) ? 'style="color:rgb(198, 152, 250);"' : '') .
+            ' data-cell="' . $i.$j . '">' . (($this->sudoku[$i][$j] != 0) ? $this->sudoku[$i][$j] : '<div CLASS="microCollectCell" id="'.$i.$j.'0">
+                <div class="microcell" id="'.$i.$j.'1">1</div>
+                <div class="microcell" id="'.$i.$j.'2">2</div>
+                <div class="microcell" id="'.$i.$j.'3">3</div>
+                <div class="microcell" id="'.$i.$j.'4">4</div>
+                <div class="microcell" id="'.$i.$j.'5">5</div>
+                <div class="microcell" id="'.$i.$j.'6">6</div>
+                <div class="microcell" id="'.$i.$j.'7">7</div>
+                <div class="microcell" id="'.$i.$j.'8">8</div>
+                <div class="microcell" id="'.$i.$j.'9">9</div>
+            </div>').'</td>';
+            }
+            echo '</tr>';
         }
-    });
-</script>
-</body>
-</html>
+        echo '</table>';
+    echo '</div>';
+}

@@ -12,6 +12,9 @@ class ShowPlayController extends BaseController
      */
     public function invoke(array $delivery = []) : array
     {
+        if(isset($delivery['field'])){
+            $_SESSION['field'] = $delivery['field'];
+        }
 
         if(isset($delivery['note']) && $delivery['note'] == 1){
             $_SESSION['note'] = 1;
@@ -21,8 +24,12 @@ class ShowPlayController extends BaseController
 
         $game = new Game();
 
-        if (isset($delivery['field']) && isset($delivery['number'])) {
-            list($row, $col) = $game->getPosRowCol($delivery['field']);
+        if (isset($delivery['field']) && isset($delivery['number']) || $_SESSION['field'] && isset($delivery['number'])) {
+            if (isset($delivery['field'])) {
+                list($row, $col) = $game->getPosRowCol($delivery['field']);
+            } else {
+                list($row, $col) = $game->getPosRowCol($_SESSION['field']);
+            }
             if (!isset($delivery['note'])) {
                 if ($game->isCellEditable($row, $col)) {
                     if ($game->isNumberCorrect($row, $col, $delivery['number'])) {
@@ -36,8 +43,12 @@ class ShowPlayController extends BaseController
                 $game->addNote($row, $col, $delivery['number']);
             }
 
-        } elseif (isset($delivery['field']) && isset($delivery['submit']) && $delivery['submit'] == 'Erase') {
-            list($row, $col) = $game->getPosRowCol($delivery['field']);
+        } elseif (isset($delivery['field']) && isset($delivery['submit']) && $delivery['submit'] == 'Erase' || $_SESSION['field'] && isset($delivery['submit']) && $delivery['submit'] == 'Erase'){
+            if (isset($delivery['field'])) {
+                list($row, $col) = $game->getPosRowCol($delivery['field']);
+            } else {
+                list($row, $col) = $game->getPosRowCol($_SESSION['field']);
+            }
             if (!isset($delivery['note'])) {
                 if ($game->isCellEditable($row, $col)) {
                     $game->deleteNumberByRowCol($row, $col);

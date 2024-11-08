@@ -6,10 +6,9 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./src/styles/styles.css">
-    <script src="/src/scripts.js"></script>
     <title>PROJECT Sudoku</title>
 </head>
-<body>
+<body class="gameBody">
 
     <div class="base">
         <div class="header">
@@ -83,5 +82,6 @@
             </div>
         </div>
     </div>
+    <script src="/src/scripts/baseScripts.js"></script>
 </body>
 </html>

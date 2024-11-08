@@ -10,6 +10,42 @@ let field = [];
     field[8] = {1: [4, 7], 2: [5, 7], 3: [6, 7], 4: [4, 8], 5: [5, 8], 6: [6, 8], 7: [4, 9], 8: [5, 9], 9: [6, 9]};
     field[9] = {1: [7, 7], 2: [8, 7], 3: [9, 7], 4: [7, 8], 5: [8, 8], 6: [9, 8], 7: [7, 9], 8: [8, 9], 9: [9, 9]};
 
+// Funktion zum Speichern aller Markierungen
+function saveHighlight() {
+    const rowData = lastClickedRow ? lastClickedRow : null;
+    const colData = lastClickedCol ? lastClickedCol : null;
+    const fieldData = lastField ? lastField : null;
+    const cellData = lastClickedCell ? lastClickedCell.getAttribute('data-cell') : null;
+    //const cellValue = lastClickedCell ? lastClickedCell.firstChild?.nodeValue?.trim() || "" : null;
+
+    localStorage.setItem('highlightData', JSON.stringify({
+        row: rowData,
+        col: colData,
+        field: fieldData,
+        cell: cellData,
+      //  cellValue: cellValue
+    }));
+}
+
+// Funktion zum Laden und Anwenden aller gespeicherten Markierungen
+function loadHighlight() {
+    const highlightData = JSON.parse(localStorage.getItem('highlightData'));
+    if (highlightData) {
+        if (highlightData.row) highlightRow(highlightData.row);
+        if (highlightData.col) highlightColumn(highlightData.col);
+        if (highlightData.field) highlightField(highlightData.field);
+
+        const cell = document.querySelector(`[data-cell="${highlightData.cell}"]`);
+        if (cell) {
+            cell.style.backgroundColor = 'rgb(230, 211, 250)'; // Rosa Markierung für die zuletzt angeklickte Zelle
+            const cellValue = cell.firstChild?.nodeValue?.trim() || "";
+            if (cellValue && !isNaN(cellValue)) {
+                highlightSameNumberCells(cellValue);
+            }
+        }
+    }
+}
+
 // Funktion für den "Note" Schalter
 function toggleNote() {
     const noteHidden = document.getElementById('noteHidden');
@@ -61,20 +97,17 @@ function highlightSameNumberCells(cellValue) {
     const allCells = table.querySelectorAll('.cell');
     allCells.forEach(cell => {
         const value = cell.textContent.trim();
-        if (value === cellValue) {
+        // Prüfen, ob die Zelle nur eine Zahl direkt als Textknoten enthält
+        if (cell.childNodes.length === 1 && cell.firstChild.nodeType === Node.TEXT_NODE && value === cellValue) {
             cell.style.backgroundColor = 'rgb(230, 211, 250)';
         }
     });
 }
 
-// Funktion zum Entfernen der Markierung der Zeilen und Spalten
+// Funktion zum Entfernen aller vorherigen Markierungen
 function removeHighlight() {
-    const rows = table.querySelectorAll('tr');
-    rows.forEach(row => {
-        row.querySelectorAll('.cell').forEach(cell => {
-            cell.style.backgroundColor = '';
-        });
-    });
+    // Entfernt die Markierung von allen Zellen
+    document.querySelectorAll('.cell').forEach(cell => cell.style.backgroundColor = '');
 }
 
 const table = document.querySelector('table');
@@ -85,11 +118,12 @@ let lastClickedCol = null;
 let lastField = null;
 let memory = null;
 
+
 table.addEventListener('click', function(event) {
     const cell = event.target.closest('.cell');
 
     if (cell) {
-        const cellValue = cell.textContent.trim();
+        const cellValue = cell.firstChild?.nodeValue?.trim() || "";
 
         memory = cell.getAttribute('data-cell');
         hiddenField.value = memory;
@@ -99,31 +133,29 @@ table.addEventListener('click', function(event) {
         lastClickedCol = memory % 10;
         lastField = Math.floor((lastClickedCol - 1) / 3) * 3 + Math.floor((lastClickedRow - 1) / 3) + 1;
 
-        console.log(lastField);
+        removeHighlight();
 
-        if (lastClickedCell) {
-            lastClickedCell.style.backgroundColor = '';
-            // Entferne die Hintergrundfarbe der gesamten Tabelle
-            removeHighlight();
-        }
-
-        // Markiere alle Zellen in der gleichen Zeile
         highlightRow(lastClickedRow);
-
-        // Markiere alle Zellen in der gleichen Spalte
         highlightColumn(lastClickedCol);
-
-        //Markiere alle Zellen im Feld
         highlightField(lastField);
 
         // Markiere die angeklickte Zelle
         cell.style.backgroundColor = 'rgb(230, 211, 250)';
         lastClickedCell = cell;
 
-        // Überprüfe, ob in der Zelle eine Zahl steht, und markiere alle Zellen mit der gleichen Zahl
-        if (cellValue && !isNaN(cellValue)) {  // Prüfen, ob es eine Zahl ist
+        if (cellValue && !isNaN(cellValue)) {
             highlightSameNumberCells(cellValue);
         }
+
+        // Speichere die aktuellen Markierungen
+        saveHighlight();
+
     }
 });
 
+// Beim Laden der Seite die Markierungen wiederherstellen
+document.addEventListener('DOMContentLoaded', loadHighlight);
+
+window.onload = function() {
+    document.body.style.visibility = 'visible';
+};

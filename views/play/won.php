@@ -30,7 +30,7 @@
                         <?php
                             if (isset($_SESSION['username'])) {
                                 echo '<h1>NOTIFICATION</h1>
-                                      <h2>Congratulations, '.$_SESSION['username'].',<br>you won the game!</h2><br>
+                                      <h2>Congratulations, '.$_SESSION['username'].'!<br>You won the game.</h2><br>
                                  
                                       <form action="index.php" method="POST">
                                          <input type="hidden" name="action" value="showMain">
