@@ -18,7 +18,7 @@ class ShowCreateCheckController extends BaseController
         $newBoard->solutionsCount();
         $_SESSION['solutions'] = $newBoard->solutionCount;
 
-        return ['arrayName' => 'solutionCount', 'data' => [$newBoard->solutionCount]];
+        return ['arrayName' => 'solutionCount', 'data' => $newBoard->solutionCount];
     }
 
 }

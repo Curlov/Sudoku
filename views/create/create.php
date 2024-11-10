@@ -70,14 +70,25 @@
                 </div>
             </div>
             <div>
-                <h2>Solutions  <?php echo $_SESSION['solutions'] ?? '0'; ?> </h2>
+                <?php
+                    if (isset($_SESSION['solutions'])) {
+                        if ($_SESSION['solutions'] >= 100) {
+                            $solutions = 'Too many solutions!';
+                        } else {
+                            $solutions = 'Solutions '.$_SESSION['solutions'];
+                        }
+                    } else {
+                        $solutions = '&nbsp;';
+                    }
+                ?>
+                <h2><?php echo $solutions;  ?></h2>
             </div>
             <div style="display: flex; justify-content: center; margin-top: 20px; align-content: center">
                 <form action="index.php" method="post">
                     <input type="hidden" name="action" value="showCreateSafe">
                     <input type="hidden" name="area" value="create">
                     <input type="hidden" name="view" value="safeSudoku">
-                    <input class="button_G" style="width: 150px; margin-right: 5px; padding: 5px" type="submit" name="submit" value="Safe Game" <?php echo (isset($solutionCount[0]) && $solutionCount[0] === 1) ? '' : 'disabled'; ?>>
+                    <input class="button_G" style="width: 150px; margin-right: 5px; padding: 5px" type="submit" name="submit" value="Safe Game" <?php echo (isset($solutionCount) && $solutionCount === 1) ? '' : 'disabled'; ?>>
                 </form>
             </div>
         </div>
