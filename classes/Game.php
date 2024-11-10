@@ -252,7 +252,7 @@ class Game
             echo '<tr>';
             for ($j = 1; $j <= 9; $j++) {
                // $celle = ($i-1)*9 + $j;
-                echo '<td class="cell" ' . (($this->sudoku[$i][$j] != 0 && $this->board[$i][$j] != $this->sudoku[$i][$j] && $this->mask[$i][$j] == 0) ? 'style="color:#FF1424;"' : '') .
+                echo '<td class="cell" ' . (($this->sudoku[$i][$j] != 0 && $this->board[$i][$j] != $this->sudoku[$i][$j] && $this->mask[$i][$j] == 0) ? 'style="color:#D80000; font-weight: bold;"' : '') .
                                            (($this->sudoku[$i][$j] != 0 && $this->board[$i][$j] == $this->sudoku[$i][$j] && $this->mask[$i][$j] == 0) ? 'style="color:#9D1798;"' : '') .
                                             ' data-cell="' . $i.$j . '">' . (($this->sudoku[$i][$j] != 0) ? $this->sudoku[$i][$j] : '<div CLASS="microCollectCell" id="'.$i.$j.'0">');
                 if ($this->sudoku[$i][$j] == 0) {
@@ -282,5 +282,23 @@ class Game
     {
         array_pop($this->notes[$row][$col]);
     }
+
+    public function allNumberSet(int $number): bool
+    {
+        $sum = 0;
+        for ($row = 1; $row <= 9; $row++) {
+            for ($col = 1; $col <= 9; $col++) {
+                if ($this->sudoku[$row][$col] && $this->board[$row][$col] == $number) {
+                    $sum++;
+                }
+            }
+        }
+        if ($sum >= 9) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 
 }

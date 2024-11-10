@@ -1,0 +1,6 @@
+Lastenheft (soll SMART-Kriterien erfüllen)
+Zu erstellen ist eine Sudoku-Spiele-Anwendung, die über Internet erreichbar und im Browser zu spielen ist.
+Der Spieler muss sich registrieren und anmelden bevor er spielen kann.
+Der Admin kann neue Rätsel entwerfen und speichern, die für den Spieler automatisch im Zufallsverfahren zugeteilt spielbar sind.
+Für das Projekt haben wir drei Wochen Zeit.
+

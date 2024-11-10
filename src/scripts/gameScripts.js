@@ -16,7 +16,6 @@ function saveHighlight() {
     const colData = lastClickedCol ? lastClickedCol : null;
     const fieldData = lastField ? lastField : null;
     const cellData = lastClickedCell ? lastClickedCell.getAttribute('data-cell') : null;
-    //const cellValue = lastClickedCell ? lastClickedCell.firstChild?.nodeValue?.trim() || "" : null;
 
     localStorage.setItem('highlightData', JSON.stringify({
         row: rowData,

@@ -84,40 +84,11 @@ class Board
     /**
      * @param $Row
      * @param $col
-     * @return int
-     */
-    public function getSudokuRowCol($Row, $col): int
-    {
-        return $this->sudoku[$Row][$col];
-    }
-
-    /**
-     * @param $Row
-     * @param $col
      * @return void
      */
     public function setMaskRowCol($Row, $col, $value): void
     {
         $this->mask[$Row][$col] = $value;
-    }
-
-    /**
-     * @param $Row
-     * @param $col
-     * @return int
-     */
-    public function getMaskRowCol($Row, $col): int
-    {
-        return $this->mask[$Row][$col];
-    }
-
-    /**
-     * @param $field
-     * @return mixed
-     */
-    public function getField(int $field): array
-    {
-        return $this->field[$field];
     }
 
     /**
@@ -325,10 +296,14 @@ class Board
         return false;
     }
 
+    /**
+     * @return bool
+     */
     public function solutionsCount(): bool
     {
         if ($this->allNumbersSet()){
             $this->solutionCount++;
+            if ($this->solutionCount >= 100) return true;
             return false;
         }
 
@@ -338,7 +313,9 @@ class Board
             if ($this->numberAllowed($row, $col, $number)) {
                 $this->setNumber($row, $col, $number);
 
-                $this->solutionsCount();
+                if ($this->solutionsCount()) {
+                    return true;
+                }
 
                 $this->setNumber($row, $col, 0);
             }
@@ -367,6 +344,10 @@ class Board
         return $fields;
     }
 
+    /**
+     * @param int $range
+     * @return void
+     */
     public function createMask(int $range): void
     {
         for ($field = 1; $field <= 9; $field++) {
@@ -378,6 +359,11 @@ class Board
         }
     }
 
+    /**
+     * @param array $board
+     * @param array $mask
+     * @return array[]
+     */
     public function createSudoku(array $board, array $mask): array
     {
         for ($row = 1; $row <= 9; $row++) {
@@ -393,6 +379,13 @@ class Board
         return $this->getSudoku();
     }
 
+    /**
+     * @param string $board
+     * @param string $mask
+     * @param int $range
+     * @return void
+     * @throws Exception
+     */
     public function enterObject(string $board, string $mask, int $range): void
     {
         try {
@@ -408,6 +401,11 @@ class Board
         }
     }
 
+    /**
+     * @param int $level
+     * @return array
+     * @throws Exception
+     */
     function getRandomObjectByLevel(int $level): array
     {
         $pdo = Db::getConnection();

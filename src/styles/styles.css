@@ -1,4 +1,8 @@
 /* Kommentar */
+* {
+    user-select: none;
+}
+
 :root {
     --color-black: rgb(0, 0, 0);
     --block-bg-color: rgb(60, 60, 60);
@@ -10,7 +14,7 @@
     --button-disable-color: rgb(101, 101, 101);
     --color-white: rgb(255, 255, 255);
     --color-pink: #9D1798;
-    --color-defRed: #D3355A;
+    --color-defRed: #D80000;
     --cell-size: 50px;
 }
 .base
@@ -125,7 +129,7 @@
     padding: 3px 0px 0px 0px;
     border-radius: 5px;
     color: azure;
-    margin-top:10px;
+    margin-top:0x;
     cursor: pointer;
 }
 
@@ -154,7 +158,12 @@
 }
 
 .buttonNumbers:hover {
-    background-color: var(--button-hover-color);
+     background-color: var(--button-hover-color);
+     color: azure;
+ }
+
+.buttonNumbers:disabled {
+    background-color: var(--cell-bg-color);
     color: azure;
 }
 
@@ -362,7 +371,7 @@ tr:last-child .cell {
 .microCollectCell {
     width: 100%;
     height: 100%;
-    display: grid;
+    /*display: grid;*/
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
     display: grid; /*grid;*/
@@ -378,3 +387,35 @@ tr:last-child .cell {
     display: inline-grid;
 }
 
+.messageBoard {
+    height: 20px;
+    display: flex;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    padding: 0px;
+}
+
+.messageBoardLeft {
+    display: block;
+    width: 50%;
+    height: 20px;
+    text-align: left;
+    margin: 0px;
+    padding: 0px;
+}
+
+.messageBoardRight {
+    width: 50%;
+    height: 20px;
+    text-align: right;
+    margin: 0px ;
+    padding: 0px;
+    display: block;
+}
+
+.faultyTime {
+    margin: 0px;
+    padding: 0px;
+    font-family: Bahnschrift;
+    font-size: 15px;
+}

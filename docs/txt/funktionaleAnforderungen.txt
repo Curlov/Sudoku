@@ -1,0 +1,39 @@
+Funktionale Anforderung
+
+Der User/Spieler muss sich registrieren um zu spielen. Die Daten (Username, Country und Password sollen in
+einer MYSQL-Datenbank gespeichert werden. Das Password nur als Hash-Wert.
+
+Die registrierten Daten sollen jederzeit bearbeitet und verändert werden, sofern die neuen Daten zulässig sind.
+
+Nach dem Registrieren soll der Spieler gleich eingeloggt sein. Hat sich der Spieler zurückliegend registriert, soll er sich manuell anmelden können.
+
+Nachdem einloggen, soll der Spieler über eine kurze Level-auswahl zum Spiel kommen.
+
+Es sollen neben der Lösung auch Notizen eingegeben werden können. Sowohl Lösung auch als Notiz sollen wieder zu löschen sein.
+
+Die jeweiligen Zellen in Zeile, Reihe und Feld sollen Farblich hervorgehoben werden. Genauso wie die Zahlen, die mit der angeklickten Zelle markiert wurden.
+
+Das gilt auch für die Zahlen, die mit der Eingabe in die Zelle hinzugefügt wurde.
+
+Die letzte angeklickte Zelle soll nach dem Absenden des Formulars erhalten bleiben.
+
+Wenn Zahlen verbraucht wurden, sollen die entsprechenden Buttons deaktiviert werden.
+
+Das Gleiche gilt für die entsprechenden Zahlen, die ala Notiz gespeichert wurden.
+
+Es ist darauf zu achten, dass es zu keinem Bild-flackern kommt, wenn es zu schnellen wiederaufrufen kommt.
+
+Es sind 2 Fehler erlaubt, beim dem 3. Fehler ist das Spiel verloren. Eine entsprechende Anzeige ist einzurichten.
+
+Des weiteren soll die Zeit gemessen werden und im Spiel, als auch im Gewonnen-Fenster angezeigt werden.
+
+Neue Rätsel werden durch den Backtracking-Algorithmus gewonnen.
+
+Um die unterschiedlichen Schwierigkeitsstufen zu generieren werden mehr oder weniger Felder in einem Feld per Zufallsgenerator entfernt.
+
+Um die Plausiblität des Rätsels zu prüfen, wird mit einem modifizierten Backtracking-Algorithmus die Anzahl der möglichen Lösungen gezählt.
+
+Bei mehr als 100 Lösungen soll abgebrochen werden, damit es zu keinen zu langen Wartezeiten kommen soll.
+
+Wenn die Anzahl der Lösungen 1 ist, gilt das Rätsel als schlüssig und kann gespeichert werden.
+
