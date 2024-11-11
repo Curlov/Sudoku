@@ -79,6 +79,6 @@ class ShowAuthenticationController extends BaseController
         }
 
 
-        return ['arrayName' => 'user', 'data' => []];
+        return ['arrayName' => 'nothing', 'data' => []];
     }
 }

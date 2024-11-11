@@ -6,11 +6,10 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./src/styles/styles.css">
-    <script src="/src/scripts.js"></script>
     <title>PROJECT Sudoku</title>
 </head>
 <body>
-
+    <div id="errorStatus" data-error="<?php echo isset($fault) ? ($fault ? 'true' : 'false') : 'true'; ?>"
     <div class="base">
         <div class="header">
             <div class="left">
@@ -30,7 +29,7 @@
                         <?php
                             if (isset($_SESSION['username'])) {
                                 echo '<h1>NOTIFICATION</h1>
-                                      <h2>Sorry '.$_SESSION['username'].',<br>with three mistakes<br>you have<br>lost the game</h2><br>
+                                      <h2>Sorry '.ucfirst($_SESSION['username']).',<br>with three faults<br>you have<br>lost the game.</h2><br>
                                  
                                       <form action="index.php" method="POST">
                                          <input type="hidden" name="action" value="showMain">
@@ -64,6 +63,7 @@
             <p></p>
         </div>
     </div>
+    <script src="/src/scripts/playErrorScript.js"></script>
 </body>
 </html>
 

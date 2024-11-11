@@ -34,8 +34,8 @@ class ShowPlayLevelSelectionController extends BaseController
         $_SESSION['mask'] = $mask;
         $_SESSION['board'] = $board;
         $_SESSION['sudoku'] = $Bc->createSudoku($board, $mask);
-
-        $_SESSION['faulty'] = 0;
+        $_SESSION['startTime'] = time();
+        $_SESSION['faults'] = 0;
         $_SESSION['field'] = 0;
         $_SESSION['notes'] = [
             1 => [1 => [], 2 => [], 3 => [], 4 => [], 5 => [], 6 => [], 7 => [], 8 => [], 9 => []],
@@ -49,7 +49,7 @@ class ShowPlayLevelSelectionController extends BaseController
             9 => [1 => [], 2 => [], 3 => [], 4 => [], 5 => [], 6 => [], 7 => [], 8 => [], 9 => []]
         ];
 
-        return ['arrayName' => 'nothing', 'data' => []];
+        return ['arrayName' => 'fault', 'data' => false];
     }
 
 }

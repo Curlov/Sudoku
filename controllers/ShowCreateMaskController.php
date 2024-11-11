@@ -18,6 +18,6 @@ class ShowCreateMaskController extends BaseController
         $_SESSION['mask'] = $newMask->getMask();
         $_SESSION['range'] = $delivery['range'];
 
-        return ['arrayName' => 'mask', 'data' => $_SESSION['mask']];
+        return ['arrayName' => 'nothing', 'data' => []];
     }
 }

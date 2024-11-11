@@ -109,6 +109,30 @@ function removeHighlight() {
     document.querySelectorAll('.cell').forEach(cell => cell.style.backgroundColor = '');
 }
 
+// Funktion, um den Fehlerstatus beim Laden der Seite zu prüfen
+function checkErrorStatus() {
+    const errorStatus = document.getElementById("errorStatus").getAttribute("data-error");
+    if (errorStatus === "true") {
+        errorSound.play(); // Ton abspielen, wenn ein Fehler vorliegt
+        console.log("Falscher Stein gesetzt!");
+    }
+}
+
+function updateElapsedTime() {
+    const now = Date.now();
+    const elapsed = now - startTime; // Verstrichene Zeit in Millisekunden
+
+    // Sekunden und Minuten berechnen
+    const totalSeconds = Math.floor(elapsed / 1000);
+    const minutes = Math.floor(totalSeconds / 60);
+    const seconds = totalSeconds % 60;
+
+    // Uhr anzeigen im Format TIME MM:SS
+    document.querySelector(".time").textContent =
+        `TIME ${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+}
+
+const errorSound = new Audio('src/sound/error.mp3');
 const table = document.querySelector('table');
 const hiddenField = document.getElementById('hiddenField');
 let lastClickedCell = null;
@@ -158,3 +182,7 @@ document.addEventListener('DOMContentLoaded', loadHighlight);
 window.onload = function() {
     document.body.style.visibility = 'visible';
 };
+
+window.addEventListener("DOMContentLoaded", checkErrorStatus);
+
+setInterval(updateElapsedTime, 1000);

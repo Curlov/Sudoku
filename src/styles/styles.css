@@ -101,6 +101,7 @@
 
 .button-group {
     display: flex;
+    justify-content: center;
     gap: 6px;
     margin-top: 3px;
 }
@@ -115,7 +116,7 @@
 .button-group-action {
     margin-left: 0px;
     margin-top: 0px;
-    gap: 4px;
+    gap: 5px;
     display: flex;
     /*flex-direction: column;*/
 }
@@ -165,6 +166,7 @@
 .buttonNumbers:disabled {
     background-color: var(--cell-bg-color);
     color: azure;
+    cursor: auto;
 }
 
 .button_LuR {
@@ -413,9 +415,16 @@ tr:last-child .cell {
     display: block;
 }
 
-.faultyTime {
+.faulty {
     margin: 0px;
     padding: 0px;
-    font-family: Bahnschrift;
+    font-family: "Courier New";
+    font-size: 15px;
+}
+
+.time {
+    margin: 0px;
+    padding: 0px;
+    font-family: "Courier New";
     font-size: 15px;
 }

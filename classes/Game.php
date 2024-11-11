@@ -28,7 +28,7 @@ class Game
     /**
      * @var int
      */
-    private int $faulty;
+    private int $faults;
 
     /**
      * @param array $sudoku
@@ -41,7 +41,7 @@ class Game
         $this->sudoku = $_SESSION['sudoku'];
         $this->mask = $_SESSION['mask'];
         $this->board = $_SESSION['board'];
-        $this->faulty = $_SESSION['faulty'];
+        $this->faults = $_SESSION['faults'];
         $this->field = $_SESSION['field'];
     }
 
@@ -135,7 +135,7 @@ class Game
         $_SESSION['sudoku'] = $this->sudoku;
         $_SESSION['mask'] = $this->mask;
         $_SESSION['board'] = $this->board;
-        $_SESSION['faulty'] = $this->faulty;
+        $_SESSION['faults'] = $this->faults;
         $_SESSION['notes'] = $this->notes;
         $_SESSION['field'] = $this->field;
     }
@@ -145,7 +145,7 @@ class Game
         $this->sudoku = $_SESSION['sudoku'];
         $this->mask = $_SESSION['mask'];
         $this->board = $_SESSION['board'];
-        $this->faulty = $_SESSION['faulty'];
+        $this->faults = $_SESSION['faults'];
         $this->notes = $_SESSION['notes'];
         $this->field = $_SESSION['field'];
     }
@@ -229,14 +229,14 @@ class Game
         return true;
     }
 
-    public function addFaulty(): void
+    public function addFaults(): void
     {
-        $this->faulty++;
+        $this->faults++;
     }
 
-    public function getFaulty(): int
+    public function getFaults(): int
     {
-        return $this->faulty;
+        return $this->faults;
     }
 
     public function setFaultyZero(): void

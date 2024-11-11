@@ -17,7 +17,7 @@ class ShowCreateBoardController extends BaseController
         $newBoard->backtracking();
         $_SESSION['board'] = $newBoard->getBoard();
 
-        return ['arrayName' => 'board', 'data' => $_SESSION['board']];
+        return ['arrayName' => 'nothing', 'data' => []];
     }
 
 }

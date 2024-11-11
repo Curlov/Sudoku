@@ -7,8 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./src/styles/styles.css">
     <title>PROJECT Sudoku</title>
+    <!-- PHP-Startzeitpunkt als globale JavaScript-Variable definieren -->
+    <script>
+        const startTime = <?php echo $_SESSION['startTime'] * 1000; ?>;
+    </script>
 </head>
 <body class="gameBody">
+    <div id="errorStatus" data-error="<?php  echo isset($fault) ? ($fault ? 'true' : 'false') : 'true'; ?>"
     <div class="base">
         <div class="header">
             <div class="left">
@@ -28,18 +33,23 @@
                 $game->setSudoku($_SESSION['sudoku']);
             }
             $game->printBoard();
-
-           // print_r($_SESSION['buttons']);
         ?>
 
         </div>
         <div class ="footer">
             <div class="messageBoard">
                 <div class="messageBoardLeft">
-                    <p class="faultyTime">0/3 FAULTY</p>
+                    <p class="faulty"><?php echo $_SESSION['faults']?>/3 FAULTS</p>
                 </div>
                 <div class="messageBoardRight">
-                    <p class="faultyTime">TIME 00:00</p>
+                    <?php
+                        $currentTime = time();
+                        $elapsedTime = $currentTime - $_SESSION['startTime'];
+                        $minutes = floor($elapsedTime / 60);
+                        $seconds = $elapsedTime % 60;
+                        $formattedTime = sprintf('%02d:%02d', $minutes, $seconds);
+                    echo '<p class="time">TIME '.$formattedTime.'</p>';
+                    ?>
                 </div>
             </div>
             <div class="button-group-action">

@@ -30,8 +30,9 @@
                         <?php
                             if (isset($_SESSION['username'])) {
                                 echo '<h1>NOTIFICATION</h1>
-                                      <h2>Congratulations, '.$_SESSION['username'].'!<br>You won the game.</h2><br>
-                                 
+                                      <h2>Congratulations, '.ucfirst($_SESSION['username']).'!<br>You have won the game.<br>
+                                      You needed '.$_SESSION['neededTime'].' time.</h2>
+                  
                                       <form action="index.php" method="POST">
                                          <input type="hidden" name="action" value="showMain">
                                          <input type="hidden" name="area" value="play">

@@ -30,7 +30,7 @@
                         <?php
                             if (isset($_SESSION['username'])) {
                                 echo '<h1>NOTIFICATION</h1>
-                                      <h2>Hello '.$_SESSION['username'].',<br>nice to have you back!</h2><br>
+                                      <h2>Hello '.ucfirst($_SESSION['username']).',<br>nice to have you back!</h2><br>
                                  
                                       <form action="index.php" method="POST">
                                          <input type="hidden" name="action" value="showMain">

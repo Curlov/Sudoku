@@ -12,6 +12,7 @@ class ShowPlayController extends BaseController
      */
     public function invoke(array $delivery = []) : array
     {
+        $fault = false;
         if(isset($delivery['field'])){
             $_SESSION['field'] = $delivery['field'];
         }
@@ -36,7 +37,8 @@ class ShowPlayController extends BaseController
                         $game->setNumberByRowCol($row, $col, $delivery['number']);
                     } else {
                         $game->setNumberByRowCol($row, $col, $delivery['number']);
-                        $game->addFaulty();
+                        $game->addFaults();
+                        $fault = true;
                     }
                 }
             } elseif ($delivery['note'] == 1) {
@@ -62,13 +64,20 @@ class ShowPlayController extends BaseController
 
         if ($game->allNumbersCorrectSet()){
             $this->view = 'won';
+            $currentTime = time();
+            $elapsedTime = $currentTime - $_SESSION['startTime'];
+            $minutes = floor($elapsedTime / 60);
+            $seconds = $elapsedTime % 60;
+            if (!isset($_SESSION['neededTime'])) {
+                $_SESSION['neededTime'] = sprintf('%02d:%02d', $minutes, $seconds);
+            }
         }
 
-        if ($game->getFaulty() >= 3) {
+        if ($game->getFaults() >= 3) {
             $this->view = 'lose';
         }
 
-        return ['arrayName' => 'nothing', 'data' => $delivery];
+        return ['arrayName' => 'fault', 'data' => $fault];
     }
 
 }
