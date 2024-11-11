@@ -9,7 +9,6 @@
     <title>PROJECT Sudoku</title>
 </head>
 <body class="gameBody">
-
     <div class="base">
         <div class="header">
             <div class="left">
@@ -21,6 +20,7 @@
                 <?php loginHelper::getlogin() ?>
             </div>
         </div>
+
         <div class="board">
 
                 <?php

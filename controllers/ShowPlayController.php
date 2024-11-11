@@ -35,6 +35,7 @@ class ShowPlayController extends BaseController
                 if ($game->isCellEditable($row, $col)) {
                     if ($game->isNumberCorrect($row, $col, $delivery['number'])) {
                         $game->setNumberByRowCol($row, $col, $delivery['number']);
+                        $game->deleteSpezialNote($row, $col, $delivery['number']);
                     } else {
                         $game->setNumberByRowCol($row, $col, $delivery['number']);
                         $game->addFaults();

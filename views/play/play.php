@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./src/styles/styles.css">
     <title>PROJECT Sudoku</title>
-    <!-- PHP-Startzeitpunkt als globale JavaScript-Variable definieren -->
+    <!-- PHP-Startzeitpunkt als JavaScript-Variable definieren -->
     <script>
         const startTime = <?php echo $_SESSION['startTime'] * 1000; ?>;
     </script>

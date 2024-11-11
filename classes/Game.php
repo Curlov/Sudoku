@@ -6,10 +6,6 @@ class Game
      */
     private int $field;
     /**
-     * @var string
-     */
-    private string $startTime;
-    /**
      * @var array
      */
     private array $sudoku;
@@ -37,29 +33,12 @@ class Game
      */
     public function __construct()
     {
-        $this->notes = $_SESSION['notes'];
-        $this->sudoku = $_SESSION['sudoku'];
+        $this->notes = $_SESSION['notes'] ;
+        $this->sudoku = $_SESSION['sudoku'] ;
         $this->mask = $_SESSION['mask'];
-        $this->board = $_SESSION['board'];
+        $this->board = $_SESSION['board'] ;
         $this->faults = $_SESSION['faults'];
         $this->field = $_SESSION['field'];
-    }
-
-    /**
-     * @return void
-     */
-    public function setStartTime(): void
-    {
-        $this->startTime = microtime(true);
-        $_SESSION['startTime'] = $this->startTime;
-    }
-
-    /**
-     * @return string
-     */
-    public function getStartTime(): string
-    {
-        return $this->startTime;
     }
 
     /**
@@ -69,48 +48,6 @@ class Game
     public function setSudoku(array $sudoku): void
     {
         $this->sudoku = $sudoku;
-    }
-
-    /**
-     * @return array
-     */
-    public function getSudoku(): array
-    {
-        return $this->sudoku;
-    }
-
-    /**
-     * @param array $mask
-     * @return void
-     */
-    public function setMask(array $mask): void
-    {
-        $this->mask = $mask;
-    }
-
-    /**
-     * @return array
-     */
-    public function getMask(): array
-    {
-        return $this->mask;
-    }
-
-    /**
-     * @param array $board
-     * @return void
-     */
-    public function setBoard(array $board): void
-    {
-        $this->board = $board;
-    }
-
-    /**
-     * @return array
-     */
-    public function getBoard(): array
-    {
-        return $this->board;
     }
 
     /**
@@ -138,30 +75,6 @@ class Game
         $_SESSION['faults'] = $this->faults;
         $_SESSION['notes'] = $this->notes;
         $_SESSION['field'] = $this->field;
-    }
-
-    public function getSessions(): void
-    {
-        $this->sudoku = $_SESSION['sudoku'];
-        $this->mask = $_SESSION['mask'];
-        $this->board = $_SESSION['board'];
-        $this->faults = $_SESSION['faults'];
-        $this->notes = $_SESSION['notes'];
-        $this->field = $_SESSION['field'];
-    }
-
-    /**
-     * @param int $row
-     * @param int $col
-     * @return bool
-     */
-    public function isCellFree(int $row, int $col): bool
-    {
-        if ($this->sudoku[$row][$col] === 0) {
-            return true;
-        }   else {
-            return false;
-        }
     }
 
     /**
@@ -229,21 +142,25 @@ class Game
         return true;
     }
 
+    /**
+     * @return void
+     */
     public function addFaults(): void
     {
         $this->faults++;
     }
 
+    /**
+     * @return int
+     */
     public function getFaults(): int
     {
         return $this->faults;
     }
 
-    public function setFaultyZero(): void
-    {
-        $this->faulty = 0;
-    }
-
+    /**
+     * @return void
+     */
     public function printBoard(): void
     {
         echo '<div class="board">';
@@ -273,16 +190,31 @@ class Game
         echo '</div>';
     }
 
+    /**
+     * @param $row
+     * @param $col
+     * @param $value
+     * @return void
+     */
     public function addNote($row, $col, $value): void
     {
         $this->notes[$row][$col][]= $value;
     }
 
+    /**
+     * @param $row
+     * @param $col
+     * @return void
+     */
     public function deleteLastNote($row, $col): void
     {
         array_pop($this->notes[$row][$col]);
     }
 
+    /**
+     * @param int $number
+     * @return bool
+     */
     public function allNumberSet(int $number): bool
     {
         $sum = 0;
@@ -300,5 +232,47 @@ class Game
         }
     }
 
+    /**
+     * @param $row
+     * @param $col
+     * @param $number
+     * @return void
+     */
+    public function deleteSpezialNote($row, $col, $number): void
+    {
+        $board = new Board();
+        $field = $board->rowColToField($row, $col);
+        $cells = $board->getField($field);
+
+        // Entfernen der Notiz aus den Zellen des Feldes
+        foreach ($cells as [$r, $c]) {
+            if (isset($this->notes[$r][$c])) {
+                if (($key = array_search($number, $this->notes[$r][$c])) !== false) {
+                    unset($this->notes[$r][$c][$key]);
+                    $this->notes[$r][$c] = array_values($this->notes[$r][$c]);
+                }
+            }
+        }
+
+        // Entfernen der Notiz aus den Arrays der Zeile
+        for ($c = 1; $c <= 9; $c++) {
+            if (isset($this->notes[$row][$c])) {
+                if (($key = array_search($number, $this->notes[$row][$c])) !== false) {
+                    unset($this->notes[$row][$c][$key]);
+                    $this->notes[$row][$c] = array_values($this->notes[$row][$c]);
+                }
+            }
+        }
+
+        // Entfernen der Notiz aus den Arrays in der Spalte
+        for ($r = 1; $r <= 9; $r++) {
+            if (isset($this->notes[$r][$col])) {
+                if (($key = array_search($number, $this->notes[$r][$col])) !== false) {
+                    unset($this->notes[$r][$col][$key]);
+                    $this->notes[$r][$col] = array_values($this->notes[$r][$col]);
+                }
+            }
+        }
+    }
 
 }

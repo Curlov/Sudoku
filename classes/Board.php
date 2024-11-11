@@ -72,6 +72,15 @@ class Board
     }
 
     /**
+     * @param int $field
+     * @return array
+     */
+    public function getField(int $field): array
+    {
+        return $this->field[$field];
+    }
+
+    /**
      * @param $Row
      * @param $col
      * @return void
@@ -209,7 +218,7 @@ class Board
      * @param int $number
      * @return bool
      */
-    public function numberAllowedInField(int $row, int $col, int $number)
+    public function numberAllowedInField(int $row, int $col, int $number): bool
     {
         $fieldNumber = $this->rowColToField($row, $col);
         foreach ($this->field[$fieldNumber] as [$row, $col])

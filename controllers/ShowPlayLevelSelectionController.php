@@ -23,20 +23,20 @@ class ShowPlayLevelSelectionController extends BaseController
                 $level = 2;
                 break;
         }
-        $Bc = new Board();
-        $data = $Bc->getRandomObjectByLevel($level);
+        $game = new Board();
+        $data = $game->getRandomObjectByLevel($level);
         $board = json_decode($data['board'], true);
         //Board muss gesetzt werden, bevor die Methode createSudoku aufgerufen wird
-        $Bc->setBoard($board);
+        $game->setBoard($board);
         $mask = json_decode($data['mask'], true);
 
-        // bringt Fehler (new Game())->setStartTime();
         $_SESSION['mask'] = $mask;
         $_SESSION['board'] = $board;
-        $_SESSION['sudoku'] = $Bc->createSudoku($board, $mask);
+        $_SESSION['sudoku'] = $game->createSudoku($board, $mask);
         $_SESSION['startTime'] = time();
         $_SESSION['faults'] = 0;
         $_SESSION['field'] = 0;
+
         $_SESSION['notes'] = [
             1 => [1 => [], 2 => [], 3 => [], 4 => [], 5 => [], 6 => [], 7 => [], 8 => [], 9 => []],
             2 => [1 => [], 2 => [], 3 => [], 4 => [], 5 => [], 6 => [], 7 => [], 8 => [], 9 => []],
