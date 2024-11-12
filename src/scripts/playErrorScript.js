@@ -10,3 +10,7 @@ function checkErrorStatus() {
 const errorSound = new Audio('src/sound/error.mp3');
 
 window.addEventListener("DOMContentLoaded", checkErrorStatus);
+
+window.onload = function() {
+    document.body.style.visibility = 'visible';
+};

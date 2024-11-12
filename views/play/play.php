@@ -1,45 +1,28 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="./src/styles/styles.css">
-    <title>PROJECT Sudoku</title>
-    <!-- PHP-Startzeitpunkt als JavaScript-Variable definieren -->
-    <script>
-        const startTime = <?php echo $_SESSION['startTime'] * 1000; ?>;
-    </script>
-</head>
-<body class="gameBody">
-    <div id="errorStatus" data-error="<?php  echo isset($fault) ? ($fault ? 'true' : 'false') : 'true'; ?>"
-    <div class="base">
-        <div class="header">
-            <div class="left">
-                <a href="index.php">
-                    <img src="src/images/logo.png" alt="logo">
-                </a>
-            </div>
-            <div class="right">
-                <?php loginHelper::getlogin() ?>
-            </div>
-        </div>
+<?php include 'views/htmlHeader.php' ?>
+
+        <!-- PHP-Startzeitpunkt als JavaScript-Variable definieren -->
+        <script>
+            const startTime = <?php echo $_SESSION['startTime'] * 1000; ?>;
+        </script>
+        <div id="errorStatus" data-error="<?php  echo isset($fault) ? ($fault ? 'true' : 'false') : 'true'; ?>"
         <div class="board">
 
-        <?php
-            $game = new Game();
-            if(isset($_SESSION['sudoku'])){
-                $game->setSudoku($_SESSION['sudoku']);
-            }
-            $game->printBoard();
-        ?>
+            <?php
+                $game = new Game();
+                if(isset($_SESSION['sudoku'])){
+                    $game->setSudoku($_SESSION['sudoku']);
+                }
+                $game->printBoard();
+            ?>
 
         </div>
         <div class ="footer">
             <div class="messageBoard">
                 <div class="messageBoardLeft">
                     <p class="faulty"><?php echo $_SESSION['faults']?>/3 FAULTS</p>
+                </div>
+                <div class="messageBoardMiddel">
+                    <p class="copyright"> &copy 2024 Curlov</p>
                 </div>
                 <div class="messageBoardRight">
                     <?php

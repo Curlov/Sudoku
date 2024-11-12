@@ -19,6 +19,7 @@
             <p></p>
         </div>
     </div>
+    <script src="/src/scripts/baseScripts.js"></script>
 </body>
 </html>
 

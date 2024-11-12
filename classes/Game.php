@@ -198,7 +198,9 @@ class Game
      */
     public function addNote($row, $col, $value): void
     {
-        $this->notes[$row][$col][]= $value;
+        if(!in_array($value, $this->notes[$row][$col])) {
+            $this->notes[$row][$col][] = $value;
+        }
     }
 
     /**
@@ -253,7 +255,6 @@ class Game
                 }
             }
         }
-
         // Entfernen der Notiz aus den Arrays der Zeile
         for ($c = 1; $c <= 9; $c++) {
             if (isset($this->notes[$row][$c])) {
@@ -263,7 +264,6 @@ class Game
                 }
             }
         }
-
         // Entfernen der Notiz aus den Arrays in der Spalte
         for ($r = 1; $r <= 9; $r++) {
             if (isset($this->notes[$r][$col])) {
@@ -273,6 +273,30 @@ class Game
                 }
             }
         }
+    }
+
+    /**
+     * @param int $row
+     * @param int $col
+     * @param int $number
+     * @return bool
+     */
+    public function isNumberSet(int $row, int $col, int $number): bool
+    {
+        $board = new Board();
+        $field = $board->rowColToField($row, $col);
+        $cells = $board->getField($field);
+
+        foreach ($cells as [$r, $c]) {
+            if ($this->sudoku[$row][$col] == $number) return true;
+        }
+        for ($r = 1; $r <= 9; $r++) {
+            if ($this->sudoku[$r][$col] == $number) return true;
+        }
+        for ($c = 1; $c <= 9; $c++) {
+            if ($this->sudoku[$row][$c] == $number) return true;
+        }
+        return false;
     }
 
 }

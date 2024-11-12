@@ -22,25 +22,23 @@
                                              <input type="hidden" name="action" value="showCreate">
                                              <input type="hidden" name="area" value="create">
                                              <input type="hidden" name="view" value="create">
-                                             <input style="font-size: x-large; width: 150px;" type="submit" value="Create">                 
+                                             <input style="font-size: x-large; width: 150px; margin-top: 25px" type="submit" value="Create">                 
                                         </form>';
                                 }
                             } else {
                                 echo '<h1>NOTIFICATION</h1>
                                       <h2>Sorry, the login was unsuccessful</h2>';
                             }
-
-
                         ?>
 
                 </div>
             </div>
-
         </div>
         <div class ="footer">
             <p></p>
         </div>
     </div>
+<script src="/src/scripts/baseScripts.js"></script>
 </body>
 </html>
 

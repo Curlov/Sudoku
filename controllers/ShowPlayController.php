@@ -43,7 +43,11 @@ class ShowPlayController extends BaseController
                     }
                 }
             } elseif ($delivery['note'] == 1) {
-                $game->addNote($row, $col, $delivery['number']);
+                if (!$game->isNumberSet($row, $col, $delivery['number'])) {
+                    $game->addNote($row, $col, $delivery['number']);
+                } else {
+                    $fault = true;
+                }
             }
 
         } elseif (isset($delivery['field']) && isset($delivery['submit']) && $delivery['submit'] == 'Erase' || $_SESSION['field'] && isset($delivery['submit']) && $delivery['submit'] == 'Erase'){

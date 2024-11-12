@@ -31,12 +31,12 @@
                     </form>
                 </div>
             </div>
-
         </div>
         <div class ="footer">
             <p></p>
         </div>
     </div>
+    <script src="/src/scripts/baseScripts.js"></script>
 </body>
 </html>
 
