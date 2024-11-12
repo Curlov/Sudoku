@@ -113,20 +113,19 @@ function checkErrorStatus() {
     const errorStatus = document.getElementById("errorStatus").getAttribute("data-error");
     if (errorStatus === "true") {
         errorSound.play();
-        console.log("Falscher Stein gesetzt!");
     }
 }
 
 function updateTime() {
     const now = Date.now();
-    const elapsed = now - startTime; // Wird mit PHP in der play.php übergeben
+    const time = now - startTime; // Wird mit PHP in der play.php übergeben
 
     // Sekunden und Minuten berechnen
-    const totalSeconds = Math.floor(elapsed / 1000);
+    const totalSeconds = Math.floor(time / 1000);
     const minutes = Math.floor(totalSeconds / 60);
     const seconds = totalSeconds % 60;
 
-    // Uhr anzeigen im Format TIME MM:SS
+    // Anzeigeformat der Uhr MM:SS
     document.querySelector(".time").textContent =
         `TIME ${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
 }
