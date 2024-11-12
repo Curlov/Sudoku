@@ -22,7 +22,6 @@ function saveHighlight() {
         col: colData,
         field: fieldData,
         cell: cellData,
-      //  cellValue: cellValue
     }));
 }
 
@@ -113,14 +112,14 @@ function removeHighlight() {
 function checkErrorStatus() {
     const errorStatus = document.getElementById("errorStatus").getAttribute("data-error");
     if (errorStatus === "true") {
-        errorSound.play(); // Ton abspielen, wenn ein Fehler vorliegt
+        errorSound.play();
         console.log("Falscher Stein gesetzt!");
     }
 }
 
-function updateElapsedTime() {
+function updateTime() {
     const now = Date.now();
-    const elapsed = now - startTime; // Verstrichene Zeit in Millisekunden
+    const elapsed = now - startTime; // Wird mit PHP in der play.php übergeben
 
     // Sekunden und Minuten berechnen
     const totalSeconds = Math.floor(elapsed / 1000);
@@ -185,4 +184,4 @@ window.onload = function() {
 
 window.addEventListener("DOMContentLoaded", checkErrorStatus);
 
-setInterval(updateElapsedTime, 1000);
+setInterval(updateTime, 1000);
