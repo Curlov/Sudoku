@@ -21,6 +21,7 @@ class Board
 
     public function __construct()
     {
+        // Die indexierung und das setzten auf 0 wird hier für Board, Mask und Sudoku vorgenommen.
         $this->board = [
             1 => [1 => 0, 2 => 0, 3 => 0, 4 => 0, 5 => 0, 6 => 0, 7 => 0, 8 => 0, 9 => 0],
             2 => [1 => 0, 2 => 0, 3 => 0, 4 => 0, 5 => 0, 6 => 0, 7 => 0, 8 => 0, 9 => 0],
@@ -36,6 +37,7 @@ class Board
         $this->mask = $this->board;
         $this->sudoku = $this->board;
 
+        // Field[x] enthält alle Zell-Koordinaten eines Feldes.
         $this->field[1] = [1 => [1, 1], 2 => [2, 1], 3 => [3, 1], 4 => [1, 2], 5 => [2, 2], 6 => [3, 2], 7 => [1, 3], 8 => [2, 3], 9 => [3, 3]];
         $this->field[2] = [1 => [4, 1], 2 => [5, 1], 3 => [6, 1], 4 => [4, 2], 5 => [5, 2], 6 => [6, 2], 7 => [4, 3], 8 => [5, 3], 9 => [6, 3]];
         $this->field[3] = [1 => [7, 1], 2 => [8, 1], 3 => [9, 1], 4 => [7, 2], 5 => [8, 2], 6 => [9, 2], 7 => [7, 3], 8 => [8, 3], 9 => [9, 3]];
@@ -54,6 +56,7 @@ class Board
      * @param $y
      * @return int
      */
+    // Gibt das entsprechende Feld der übergebenen X-Y-Koordinaten zurück.
     public function rowColToField($x, $y): int
     {
         if ($x >= 1 && $x <= 3 && $y >= 1 && $y <= 3) $fieldNumber = 1;
@@ -75,6 +78,7 @@ class Board
      * @param int $field
      * @return array
      */
+    // Gibt das Array des entsprechenden Feldes zurück.
     public function getField(int $field): array
     {
         return $this->field[$field];
@@ -85,6 +89,7 @@ class Board
      * @param $col
      * @return void
      */
+    // Schreibt an die entsprechende X/Y-Position im Sudoku den übergebenen Wert.
     public function setSudokuRowCol($Row, $col, $value): void
     {
         $this->sudoku[$Row][$col] = $value;
@@ -95,6 +100,7 @@ class Board
      * @param $col
      * @return void
      */
+    // Schreibt an die entsprechende X/Y-Position in der Maske den übergebenen Wert.
     public function setMaskRowCol($Row, $col, $value): void
     {
         $this->mask[$Row][$col] = $value;
@@ -103,6 +109,7 @@ class Board
     /**
      * @return array|array[]
      */
+    // Übergibt das Sudoku.
     public function getSudoku(): array
     {
         return $this->sudoku;
@@ -112,6 +119,7 @@ class Board
      * @param array $board
      * @return void
      */
+    // Überschreibt das Board an das Sudoku.
     public function setSudoku(array $board): void
     {
         $this->sudoku = $board;
@@ -120,6 +128,7 @@ class Board
     /**
      * @return array|array[]
      */
+    // Übergibt die Maske.
     public function getMask(): array
     {
         return $this->mask;
@@ -128,6 +137,7 @@ class Board
     /**
      * @return array[]
      */
+    // Übergibt das Board.
     public function getBoard(): array
     {
         return $this->board;
@@ -137,6 +147,7 @@ class Board
      * @param $board
      * @return array
      */
+    // Beschreibt das Board mit dem übergebenen Array.
     public function setBoard(array $board): void
     {
         $this->board = $board;
@@ -147,6 +158,7 @@ class Board
      * @param $col
      * @return int
      */
+    // Übergibt den Wert an Position X/Y im Board.
     public function getBoardRowCol($row,$col): int
     {
         return $this->board[$row][$col];
@@ -158,6 +170,7 @@ class Board
      * @param int $value
      * @return void
      */
+    // Beschreibt das Board an Position X/Y mit dem übergebenen Wert oder mit 0.
     public function setNumber(int $row, int $col, int $value = 0): void
     {
         $this->board[$row][$col] = $value;
@@ -166,6 +179,7 @@ class Board
     /**
      * @return void
      */
+    // Das Spielfeld wird in einfacher Weise - ohne Mikrozellen - ausgegeben.
     public function printBoard(): void
     {
         echo '<div class="board">';
@@ -186,6 +200,7 @@ class Board
      * @param int $number
      * @return bool
      */
+    // Überprüft, ob die übergebene Nummer in der Spalte erlaubt ist.
     public function numberAllowedInCol(int $col, int $number): bool
     {
         for ($i = 1; $i <= 9; $i++) {
@@ -201,6 +216,7 @@ class Board
      * @param int $number
      * @return bool
      */
+    // Überprüft, ob die übergebene Nummer in der Zeile erlaubt ist.
     public function numberAllowedInRow(int $row, int $number): bool
     {
         for ($i = 1; $i <= 9; $i++) {
@@ -217,6 +233,7 @@ class Board
      * @param int $number
      * @return bool
      */
+    // Überprüft, ob die übergebene Nummer in dem Feld erlaubt ist.
     public function numberAllowedInField(int $row, int $col, int $number): bool
     {
         $fieldNumber = $this->rowColToField($row, $col);
@@ -232,6 +249,7 @@ class Board
     /**
      * @return bool
      */
+    // Prüft, ob alle Zellen mit Zahlen besetzt. Eine 0 ist eine leere Zelle.
     public function allNumbersSet(): bool
     {
         foreach ($this->board as $row) {
@@ -248,6 +266,7 @@ class Board
      * @param $number
      * @return bool
      */
+    // Eine Zusammenfassung aller Abfragen, ob die übergebende Zahl, in Spalte, Zeile und Feld erlaubt ist.
     public function numberAllowed ($row, $col, $number): bool
     {
         if($this->numberAllowedInRow($row, $number) &&
@@ -262,6 +281,8 @@ class Board
     /**
      * @return int[]|null
      */
+    // Die Methode gehört zur Backtracking-Methode und gibt die X/Y-Koordinate.
+    // der nächsten freien Zelle - oder eine NULL - zurück.
     public function nextFreeCell(): ?array
     {
         for ($row = 1; $row <= 9; $row++) {
@@ -278,6 +299,7 @@ class Board
      * @return bool
      * @throws \Random\RandomException
      */
+    // Eine rekursive backtracking Methode, die ein Sudoku oder ein leeres Spielfeld mit Zufallszahlen füllt.
     public function backtracking(): bool
     {
         if ($this->allNumbersSet()){
@@ -307,6 +329,9 @@ class Board
     /**
      * @return bool
      */
+
+    // Abgewandelte Backtracking Methode, die eine Anzahl der möglichen Lösungen zurückgibt. Auf maximal 100 begrenzt.
+    // Um ein spielbares und eindeutiges Sudoku zu erhalten, müssen wir überprüfen, dass es nur eine mögliche Lösung gibt.
     public function solutionsCount(): bool
     {
         if ($this->allNumbersSet()){
@@ -335,6 +360,9 @@ class Board
      * @param int $range
      * @return array
      */
+    // Gibt ein Array mit Zufallszahlen in zufälliger Anordnung zurück. Erzeugt wird eine Zufallszahl,
+    // die eine Menge an gesetzten Zahlen darstellt. Die dann wiederum per Zufallszahl gesetzt
+    // ermittelt und gespeichert werden. Gehört zu createMask
     public function randomFields(int $range): array
     {
         $fields = [];
@@ -356,6 +384,8 @@ class Board
      * @param int $range
      * @return void
      */
+    // Erstellt eine neue Maske. Holt sich zufällige Zellen aus der Methode randomFields und
+    // setzt hier eine komplette Maske zusammen.
     public function createMask(int $range): void
     {
         for ($field = 1; $field <= 9; $field++) {
@@ -372,6 +402,7 @@ class Board
      * @param array $mask
      * @return array[]
      */
+    // Kreiert aus dem Bord und der Maske ein Sudoku
     public function createSudoku(array $board, array $mask): array
     {
         for ($row = 1; $row <= 9; $row++) {
@@ -394,6 +425,7 @@ class Board
      * @return void
      * @throws Exception
      */
+    // Speichert ds Board und die Maske in der Datenbank
     public function enterObject(string $board, string $mask, int $range): void
     {
         try {
@@ -414,6 +446,7 @@ class Board
      * @return array
      * @throws Exception
      */
+    // Es wird ein zufälliges "Sudoku" also Board und Maske aus der Datenbank gelesen und übergeben.
     function getRandomObjectByLevel(int $level): array
     {
         $pdo = Db::getConnection();
