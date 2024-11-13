@@ -168,7 +168,6 @@ class Game
         for ($i = 1; $i <= 9; $i++) {
             echo '<tr>';
             for ($j = 1; $j <= 9; $j++) {
-               // $celle = ($i-1)*9 + $j;
                 echo '<td class="cell" ' . (($this->sudoku[$i][$j] != 0 && $this->board[$i][$j] != $this->sudoku[$i][$j] && $this->mask[$i][$j] == 0) ? 'style="color:#D80000; font-weight: bold;"' : '') .
                                            (($this->sudoku[$i][$j] != 0 && $this->board[$i][$j] == $this->sudoku[$i][$j] && $this->mask[$i][$j] == 0) ? 'style="color:#9D1798;"' : '') .
                                             ' data-cell="' . $i.$j . '">' . (($this->sudoku[$i][$j] != 0) ? $this->sudoku[$i][$j] : '<div CLASS="microCollectCell" id="'.$i.$j.'0">');

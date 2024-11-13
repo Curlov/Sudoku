@@ -173,7 +173,6 @@ class Board
         for ($i = 1; $i <= 9; $i++) {
             echo '<tr>';
             for ($j = 1; $j <= 9; $j++) {
-                $celle = ($i-1)*9 + $j;
                 echo '<td class="cell" data-cell="' . $i.$j . '">' . (($this->sudoku[$i][$j] != 0) ? $this->sudoku[$i][$j] : " " .'</td>');
             }
             echo '</tr>';
