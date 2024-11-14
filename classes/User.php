@@ -1,5 +1,4 @@
 <?php
-
 class User
 {
     /**
@@ -32,55 +31,30 @@ class User
         }
     }
 
+    /**
+     * @param string $password
+     * @return string
+     */
+    // Gibt für das übergebene Password, den entsprechenden Password-Hash zurück.
     public function getpasswordHash(string $password): string
     {
         return password_hash($password, PASSWORD_DEFAULT);
     }
 
     /**
-     * @return mixed
-     */
-    public function getUsername()
-    {
-        return $this->username;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getPassword()
-    {
-        return $this->password;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getCountry()
-    {
-        return $this->country;
-    }
-
-    /**
      * @return int
      */
+    // Gibt die ID zurück
     public function getId()
     {
         return $this->id;
     }
 
     /**
-     * @return int
-     */
-    public function getAdmin(): int
-    {
-        return $this->admin;
-    }
-
-    /**
      * @param int $id
      * @return void
      */
+    // Löscht den User via ID aus der Datenbank.
     public function deleteObjectById(int $id): void
     {
         try {
@@ -100,6 +74,7 @@ class User
      * @param string $passwordHash
      * @return void
      */
+    // Trägt einen User in die Datenbank ein.
     public function enterObject(string $username, string $country, string $passwordHash): void
     {
         try {
@@ -119,6 +94,7 @@ class User
      * @param string $username
      * @return array
      */
+    // Prüft, ob ein Username bereits in der Datenbank vorhanden ist.
     function isObjectRegistered(string $username):bool
     {
         $pdo = Db::getConnection();
@@ -141,6 +117,7 @@ class User
      * @param string $passwordHash
      * @return void
      */
+    // Ein User-Datenbank-Eintrag wird geupdatet oder überschrieben
     public function updateObject(int $id, string $username, string $country, string $passwordHash): void
     {
         try {
@@ -156,7 +133,12 @@ class User
             throw new Exception($e);
         }
     }
-
+    /**
+     * @param string $username
+     * @return object|false|stdClass|User|null
+     * @throws Exception
+     */
+    // Gibt die Userdaten nach Usernamen zurück
     function getObjectByName(string $username): object
     {
         $pdo = Db::getConnection();
@@ -172,6 +154,8 @@ class User
      * @param string $password
      * @return bool
      */
+    // Prüft, ob der übergebenene Username in der Datenbank vorhanden ist und ob das Password
+    // mit dem gespeicherten Passwordhash verifiziert werden kann
     function isLoginOK(string $username, string $password): bool
     {
         $pdo = Db::getConnection();
@@ -190,7 +174,12 @@ class User
             }
         }
     }
-
+    /**
+     * @param string $username
+     * @return bool
+     * @throws Exception
+     */
+    // Prüft, ob der User einen Admin-Status hat.
     function isObjectAdmin(string $username):bool
     {
         $pdo = Db::getConnection();
@@ -209,7 +198,13 @@ class User
             }
         }
     }
-
+    /**
+     * @param string $newName
+     * @param int $id
+     * @return bool
+     * @throws Exception
+     */
+    // Prüft, ob der übergebenen Username nicht unter einer anderen ID vorhanden ist.
     function usernameFree(string $newName, int $id): bool
     {
         $pdo = Db::getConnection();

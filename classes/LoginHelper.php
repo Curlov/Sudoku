@@ -2,6 +2,7 @@
 
 class loginHelper
 {
+    // Alle Länder dieser Welt
     const COUNTRIES = [
         "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua and Barbuda", "Argentina", "Armenia", "Australia",
         "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin",
@@ -25,6 +26,7 @@ class loginHelper
         "United Arab Emirates", "United Kingdom", "United States of America", "Uruguay", "Uzbekistan", "Vanuatu", "Venezuela", "Vietnam",
         "Yemen", "Zambia", "Zimbabwe"];
 
+    // Das Anmelde-Formular im Header auf der rechten Seite.
     public static function getlogin()
     {
         if (isset($_SESSION['username'])) {

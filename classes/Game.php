@@ -31,6 +31,7 @@ class Game
      * @param array $mask
      * @param array $board
      */
+    // Der Konstruktor generiert seine Daten aus den gesetzten Sessions.
     public function __construct()
     {
         $this->notes = $_SESSION['notes'] ;
@@ -45,6 +46,7 @@ class Game
      * @param array $sudoku
      * @return void
      */
+    // Setzt das übergebene Array als Sudoku
     public function setSudoku(array $sudoku): void
     {
         $this->sudoku = $sudoku;
@@ -54,10 +56,11 @@ class Game
      * @param int $field
      * @return array
      */
-    public function getPosRowCol(int $field): array
+    // Erwartet die Übergabe einer Zellen-Nummer und gibt Zeile und Spalte zurück
+    public function getPosRowCol(int $cell): array
     {
-        $row = floor($field / 10);
-        $col = $field % 10;
+        $row = floor($cell / 10);
+        $col = $cell % 10;
         return [$row, $col];
     }
 
@@ -67,6 +70,7 @@ class Game
      * @param array $board
      * @return void
      */
+    // Alle SESSIONS werden neu gesetzt
     public function setSessions(): void
     {
         $_SESSION['sudoku'] = $this->sudoku;
@@ -83,6 +87,7 @@ class Game
      * @param int $value
      * @return void
      */
+    // Beschreibt das "Sudoku" mit dem übergebenen Wert an der Position X/Y
     public function setNumberByRowCol(int $row, int $col, int $value): void
     {
         $this->sudoku[$row][$col] = $value;
@@ -93,6 +98,7 @@ class Game
      * @param int $col
      * @return void
      */
+    // Wir löschen im "Sudoku" an Position X/Y die Zahl, in dem wir auf 0 setzen.
     public function deleteNumberByRowCol(int $row, int $col): void
     {
         $this->sudoku[$row][$col] = 0;
@@ -103,6 +109,7 @@ class Game
      * @param int $col
      * @return bool
      */
+    // Die "Maske" wird an Position X/Y auf 0 abgefragt. Wenn dort 0 vermerkt ist, ist die Zelle editierbar.
     public function isCellEditable(int $row, int $col): bool
     {
         if ($this->mask[$row][$col] === 0) {
@@ -118,6 +125,8 @@ class Game
      * @param int $value
      * @return bool
      */
+    // Es wird überprüft, ob die übergebene Zahl mit der Zahl auf dem "Board" an Position X/Y übereinstimmt.
+    // Wenn ja, ist die Zahl richtig gesetzt
     public function isNumberCorrect(int $row, int $col, int $value): bool
     {
         if ($this->board[$row][$col] === $value) {
@@ -130,6 +139,8 @@ class Game
     /**
      * @return bool
      */
+    // Es werden alle Felder auf dem "Sudoku" mit den Feldern auf dem "Board" verglichen.
+    // Wenn die Zahlen nicht übereinstimmen, wird abgebrochen. Sonst wird am Ende "true" zurückgegeben.
     public function allNumbersCorrectSet(): bool
     {
         for($row = 1; $row <= 9; $row++) {
@@ -145,6 +156,7 @@ class Game
     /**
      * @return void
      */
+    // Der Fehler-Zähler wird um 1 erhöht
     public function addFaults(): void
     {
         $this->faults++;
@@ -153,6 +165,7 @@ class Game
     /**
      * @return int
      */
+    // Die Anzahl der Fehler wird zurückgegeben
     public function getFaults(): int
     {
         return $this->faults;
@@ -161,6 +174,8 @@ class Game
     /**
      * @return void
      */
+    // Eine Methode, die das Spielfeld mit allen Zahlen, in der entsprechenden Farbe und Mikro-Zellen für die Notizen ausgibt.
+    // Wenn die Zelle auf 0 steht, werden die Micro-Zellen aufgebaut.
     public function printBoard(): void
     {
         echo '<div class="board">';
@@ -195,6 +210,7 @@ class Game
      * @param $value
      * @return void
      */
+    // Dem Notes-Array an Position X/Y einen Wert hinzufügen.
     public function addNote($row, $col, $value): void
     {
         if(!in_array($value, $this->notes[$row][$col])) {
@@ -207,6 +223,7 @@ class Game
      * @param $col
      * @return void
      */
+    // Dan letzten Wert im Notes-Array an Position X/Y löschen.
     public function deleteLastNote($row, $col): void
     {
         array_pop($this->notes[$row][$col]);
@@ -216,6 +233,7 @@ class Game
      * @param int $number
      * @return bool
      */
+    // Prüfen, ob alle Zellen auf dem "Sudoku" besetzt sind und mit denen auf dem "Board" übereinstimmen.
     public function allNumberSet(int $number): bool
     {
         $sum = 0;
@@ -239,6 +257,7 @@ class Game
      * @param $number
      * @return void
      */
+    // Löscht alle Notizen in Zeile, Spalte und Feld, die mit der übergebenen Zahl übereinstimmen.
     public function deleteSpezialNote($row, $col, $number): void
     {
         $board = new Board();
@@ -280,6 +299,7 @@ class Game
      * @param int $number
      * @return bool
      */
+    // Prüft, ob die übergebene Zahl in Zeile, Spalte oder Feld vorhanden ist.
     public function isNumberSet(int $row, int $col, int $number): bool
     {
         $board = new Board();

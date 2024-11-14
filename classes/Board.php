@@ -299,30 +299,37 @@ class Board
      * @return bool
      * @throws \Random\RandomException
      */
-    // Eine rekursive backtracking Methode, die ein Sudoku oder ein leeres Spielfeld mit Zufallszahlen füllt.
+    // Eine rekursive Backtracking-Methode, die ein Sudoku-Raster mit zufälligen Zahlen füllt.
     public function backtracking(): bool
     {
+        // Prüft, ob alle Zellen im Bild gesetzt sind. Wenn ja, wird abgebrochen und "true" zurückgegeben
         if ($this->allNumbersSet()){
             return true;
         }
 
+        // Die nächste freie Zelle wird ermittelt
         list($row, $col) = $this->nextFreeCell();
 
         for ($number = 1; $number <= 9; $number++) {
-
+            // Die number aus der Schleife wird durch eine Zufallszahl ersetzt
             $number = random_int(1, 9);
 
+            // Wenn die Zahl an X/Y erlaubt ist, wird die Zahl an der Stelle gesetzt
             if ($this->numberAllowed($row, $col, $number)) {
                 $this->setNumber($row, $col, $number);
-
+                // Hier ruft sich die backtracking Methode selber auf mit den verbliebenen unbesetzten Zellen.
                 $solved = $this->backtracking();
+                // Wenn eine der vielen Fortführungen alle Felder besetzt hat, bekommen wir von dieser ein true zurück
+                // und die Methoden brechen sich ab. Das Board ist dann gefüllt.
                 if ($solved) {
                     return true;
                 }
-
+                // Die Zahl, die wir an Position X/Y gesetzt haben, nehmen wir wieder zurück
                 $this->setNumber($row, $col, 0);
             }
         }
+        // Wenn sich die Methode nicht schon vorher erfolgreich beendet hat,
+        // weil alle felder besetzt sind, wird ein "false" zurückgegeben
         return false;
     }
 

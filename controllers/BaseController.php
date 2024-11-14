@@ -1,5 +1,5 @@
 <?php
-
+// BasisController, von dem die Methoden getArea und getView nebst Attribute geerbt werden.
 abstract class BaseController
 {
     protected string $area;

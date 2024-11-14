@@ -1,4 +1,5 @@
 <?php
+// Authentications Controller, der
 class ShowAuthenticationController extends BaseController
 {
 
@@ -17,8 +18,11 @@ class ShowAuthenticationController extends BaseController
      */
     public function invoke(array $delivery = []) : array
     {
+        // Der Teil der Authentication, der die Userdaten in die Datenbank einträgt und den User
+        // im Erfolgsfall anmeldet, in dem er eine SESSION erstellt
         if ($this->area == 'authentication' && $this->view == 'insert') {
             try {
+                //Sofern der Username noch nicht registriert ist
                 if (!(new User())->isObjectRegistered($delivery['username'])) {
                     $passwordHash = (new User())->getPasswordHash($delivery['password']);
                     (new User)->enterObject($delivery['username'], $delivery['country'], $passwordHash);
@@ -31,13 +35,13 @@ class ShowAuthenticationController extends BaseController
                 throw new Exception($e);
             }
 
-
+        // Wird der User ausgeloggt, werden die SESSIONS zerstört
         } elseif ($this->area == 'authentication' && $this->view == 'Logout') {
             session_unset();
             session_destroy();
             return ['arrayName' => 'user', 'data' => []];
 
-
+        // Sollen die Userdaten editiert werden, werden die Userdaten gemäß dem Usernamen ausgelesen und als Array übergeben
         } elseif ($this->area == "authentication" && $this->view == 'Edit') {
             try {
                 return ['arrayName' => 'user', 'data' => [(new User)->getObjectByName($_SESSION['username'])]];
@@ -45,7 +49,7 @@ class ShowAuthenticationController extends BaseController
                 throw new Exception($e);
             }
 
-
+        // Wenn die Userdaten editiert wurden und neu gespeichert werden sollen
         } elseif ($this->area == "authentication" && $this->view == 'Update') {
             try {
                 $passwordHash = (new User())->getPasswordHash($delivery['password']);
@@ -61,7 +65,7 @@ class ShowAuthenticationController extends BaseController
                 throw new Exception($e);
             }
 
-
+        // Login prüfung. Wenn es den User gibt und das Passwort zum Passwort-Hash passt, wird eine SESSION gesetzt
         } elseif ($this->area == "authentication" && $this->view == 'Login') {
             try {
                 if (isset($delivery['username']) && isset($delivery['password'])) {
@@ -78,7 +82,7 @@ class ShowAuthenticationController extends BaseController
             }
         }
 
-
+        // Wenn keine der If-Abfragen greifen, wird ein leeres Array zurückgegeben
         return ['arrayName' => 'nothing', 'data' => []];
     }
 }
