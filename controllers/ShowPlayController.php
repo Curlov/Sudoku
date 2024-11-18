@@ -1,4 +1,5 @@
 <?php
+// Der Controller, der das eigentliche Spiel steuert
 class ShowPlayController extends BaseController
 {
     public function __construct(string $area,string $view)
@@ -13,6 +14,7 @@ class ShowPlayController extends BaseController
     public function invoke(array $delivery = []) : array
     {
         $fault = false;
+        // Speichert das üb
         if(isset($delivery['field'])){
             $_SESSION['field'] = $delivery['field'];
         }

@@ -1,5 +1,5 @@
 <?php
-
+// Erzeugt ein neues Board mittels Backtracking-Methode und speichert es in der SESSION "board".
 class ShowCreateBoardController extends BaseController
 {
     public function __construct(string $area,string $view)

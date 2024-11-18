@@ -1,5 +1,5 @@
 <?php
-
+// Ein leerer Controller, der aufgerufen wird, wenn wir den "view" main anzeigen.
 class ShowMainController extends BaseController
 {
     public function __construct(string $area,string $view)

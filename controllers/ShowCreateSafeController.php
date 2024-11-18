@@ -1,5 +1,6 @@
 <?php
-
+// Der Controller kodiert Board und Maske aus der SESSION in ein JSON-Objekt und übergibt die Strings
+// an die Methode, die beide in der Datenbank speichert. Anschließend werden die entsprechenden SESSION gelöscht.
 class ShowCreateSafeController extends BaseController
 {
     public function __construct(string $area,string $view)

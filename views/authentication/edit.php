@@ -1,4 +1,6 @@
-<?php include 'views/htmlHeader.php' ?>
+<?php include 'views/htmlHeader.php'
+/** @var $user[0] wird übergeben */
+?>
 
         <div class="board">
             <div class="container">
@@ -8,6 +10,7 @@
 
                         <input type="hidden" name="action" value="showAuthentication">
                         <input type="hidden" name="area" value="authentication">
+
                         <input type="hidden" name="id" value="<?php echo $user[0]->getId(); ?>">
 
                         <label>Username<br>
