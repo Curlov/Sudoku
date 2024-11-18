@@ -9,9 +9,9 @@ try {
     // Auto-Loader zum Laden der Klassen. Anhand des Namenszusatzes wird ein entsprechender Ordner gewählt
     spl_autoload_register(function ($className): void {
         if (str_ends_with($className, 'Controller')){
-            include 'controllers/' . $className . '.php';
+            include './controllers/' . $className . '.php';
         } else {
-            include 'classes/' . $className . '.php';
+            include './classes/' . $className . '.php';
         }});
 
     // Die REQUEST wird gespeichert
@@ -41,7 +41,7 @@ try {
         !empty($array) && ${$array['arrayName']} = $array['data'];
 
         // Der entsprechende View wird gemäß "area" und "view" geladen
-        include 'views/' . $controller->getArea() . '/' . $controller->getView() . '.php';
+        include './views/' . lcfirst($controller->getArea()) . '/' . lcfirst($controller->getView()) . '.php';
     }
 
 // Hier fangen wir mögliche Fehler auf. Diese werden dann gegebenenfalls in die Log-Datei geschrieben und error.php wird ausgegeben
@@ -49,5 +49,5 @@ try {
         file_put_contents(LOG_PATH, (new DateTime())->format('d.m.Y - H:i:s ').
             "  ".$e->getMessage() . "\n" . file_get_contents(LOG_PATH));
 
-        include "views/main/error.php";
+        include "./views/main/error.php";
 }

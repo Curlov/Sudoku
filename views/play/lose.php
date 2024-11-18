@@ -1,5 +1,6 @@
-<?php include 'views/htmlHeader.php' ?>
+<?php include './views/htmlHeader.php' ?>
 
+        <!-- Hier wird nochmal der "errorStatus" für den Ton gesetzt -->
         <div id="errorStatus" data-error="<?php echo isset($fault) ? ($fault ? 'true' : 'false') : 'true'; ?>"
         <div class="board">
             <div class="container">
@@ -39,7 +40,7 @@
             <p></p>
         </div>
     </div>
-    <script src="/src/scripts/playErrorScript.js"></script>
+    <script src="./src/scripts/playErrorScript.js"></script>
 </body>
 </html>
 

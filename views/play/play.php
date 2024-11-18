@@ -1,4 +1,4 @@
-<?php include 'views/htmlHeader.php' ?>
+<?php include './views/htmlHeader.php' ?>
 
         <!-- PHP-Startzeitpunkt als JavaScript-Variable definieren -->
         <script>
@@ -26,6 +26,8 @@
                 </div>
                 <div class="messageBoardRight">
                     <?php
+                        // Berechnung und Ausgabe der verstrichenen Zeit. Die Zeit muss sowohl über PHP
+                        // als auch über JavaScript aktualisiert werden
                         $currentTime = time();
                         $elapsedTime = $currentTime - $_SESSION['startTime'];
                         $minutes = floor($elapsedTime / 60);
@@ -40,6 +42,7 @@
                     <input form="gamePlay" id="ButtonErase" type="submit" class="buttonAction" name="submit" value="Erase">
                 </div>
                 <div>
+                    <!-- Ein hidden Field um den "note"-Schalter zu setzen -->
                     <input form="gamePlay" type="hidden" name="note" id="noteHidden" value="<?php echo isset($_SESSION['note']) ? $_SESSION['note'] : '0'; ?>">
                     <button type="button" id="toggleButton" class="buttonAction2 <?php echo isset($_SESSION['note']) && $_SESSION['note'] == '1' ? 'active' : ''; ?>" onclick="toggleNote()">
                         Note
@@ -66,6 +69,6 @@
            </form>
         </div>
     </div>
-    <script src="/src/scripts/gameScripts.js"></script>
+    <script src="./src/scripts/gameScripts.js"></script>
 </body>
 </html>

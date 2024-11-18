@@ -1,4 +1,4 @@
-<?php include 'views/htmlHeader.php' ?>
+<?php include './views/htmlHeader.php' ?>
 
         <div class="board">
             <div class="container">
@@ -9,12 +9,12 @@
                                 echo '<h1>NOTIFICATION</h1>
                                       <h2>Congratulation!<br>You have successfully registered.</h2><br> 
                                       <form action="index.php" method="POST">
-                                     <input type="hidden" name="action" value="showMain">
-                                     <input type="hidden" name="area" value="play">
-                                     <input type="hidden" name="view" value="levelSelection">
-                                     
-                                     <input style="font-size: x-large; width: 150px;" type="submit" value="Let`s Play">
-                                  </form>';
+                                         <input type="hidden" name="action" value="showMain">
+                                         <input type="hidden" name="area" value="play">
+                                         <input type="hidden" name="view" value="levelSelection">
+                                         
+                                         <input style="font-size: x-large; width: 150px;" type="submit" value="Let`s Play">
+                                      </form>';
 
                             } else {
                                 echo "<h1>NOTIFICATION</h1>
@@ -29,7 +29,7 @@
             <p></p>
         </div>
     </div>
-    <script src="/src/scripts/baseScripts.js"></script>
+    <script src="./src/scripts/baseScripts.js"></script>
 </body>
 </html>
 

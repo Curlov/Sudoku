@@ -1,4 +1,4 @@
-<?php include 'views/htmlHeader.php' ?>
+<?php include './views/htmlHeader.php' ?>
 
         <div class="board">
             <div class="container">
@@ -21,6 +21,7 @@
 
                                 <?php
                                 echo '<option value="...">select...</option>';
+                                // Es wird durch die Konstante COUNTRIES iteriert. COUNTRIES ist in der Klasse LoginHelder gespeichert
                                 foreach (loginHelper::COUNTRIES as $country) {
                                     echo '<option value="' . $country . '">' . $country . '</option>';
                                 }
@@ -37,7 +38,7 @@
             <p></p>
         </div>
     </div>
-    <script src="/src/scripts/baseScripts.js"></script>
+    <script src="./src/scripts/baseScripts.js"></script>
 </body>
 </html>
 

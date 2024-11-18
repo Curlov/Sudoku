@@ -1,6 +1,6 @@
 <?php
 
-class loginHelper
+class LoginHelper
 {
     // Alle Länder dieser Welt
     const COUNTRIES = [

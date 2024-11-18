@@ -1,5 +1,5 @@
 <?php
-// Authentications Controller, der
+// Authentications Controller, der alles ums Thema User, Login, Logout, Registrieren und Editieren steuert.
 class ShowAuthenticationController extends BaseController
 {
 

@@ -13,10 +13,11 @@
     <div class="header">
         <div class="left">
             <a href="index.php">
-                <img src="src/images/logo.png" alt="logo">
+                <img src="./src/images/logo.png" alt="logo">
             </a>
         </div>
         <div class="right">
-            <?php loginHelper::getlogin() ?>
+            <!-- Das Anmeldeformular wird inkludiert -->
+            <?php LoginHelper::getlogin() ?>
         </div>
     </div>

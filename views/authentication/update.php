@@ -1,4 +1,4 @@
-<?php include 'views/htmlHeader.php' ?>
+<?php include './views/htmlHeader.php' ?>
 
         <div class="board">
             <div class="container">
@@ -29,7 +29,7 @@
             <p></p>
         </div>
     </div>
-    <script src="/src/scripts/baseScripts.js"></script>
+    <script src="./src/scripts/baseScripts.js"></script>
 </body>
 </html>
 

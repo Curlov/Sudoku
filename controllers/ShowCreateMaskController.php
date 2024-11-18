@@ -1,5 +1,7 @@
 <?php
-
+// Der Controller lässt anhand der übergebenen Schwierigkeitsstufe (range) eine Maske erzeugen und
+// speichert Maske und die Schwierigkeitsstufe (range) in der dazugehörigen SESSION.
+// Das Array, welches wir zurückgeben ist leer.
 class ShowCreateMaskController extends BaseController
 {
     public function __construct(string $area,string $view)

@@ -1,5 +1,5 @@
 <?php
-
+// Der Controller erzeugt ein neues leeres "board" und gibt es per Array zurück.
 class ShowCreateController extends BaseController
 {
     public function __construct(string $area,string $view)
