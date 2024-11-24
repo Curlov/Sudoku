@@ -5,7 +5,7 @@ USE sudoku;
 create table users
 (
     id       int                  not null,
-    password varchar(255)         not null,
+    passwordHash varchar(255)     not null,
     country  varchar(100)         not null,
     admin    tinyint(1) default 0 not null,
     username varchar(100)         not null

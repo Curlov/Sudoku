@@ -1,3 +1,24 @@
+24.11.2024 - 12:46:41   PDOException: SQLSTATE[HY000] [2002] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte in C:\Users\twolt\OneDrive - BBQ - Baumann Bildung und Qualifizierung GmbH\source\PHP\Projekte\sudoku\classes\Db.php:16
+Stack trace:
+#0 C:\Users\twolt\OneDrive - BBQ - Baumann Bildung und Qualifizierung GmbH\source\PHP\Projekte\sudoku\classes\Db.php(16): PDO->__construct('mysql:dbname=su...', 'root', Object(SensitiveParameterValue))
+#1 C:\Users\twolt\OneDrive - BBQ - Baumann Bildung und Qualifizierung GmbH\source\PHP\Projekte\sudoku\classes\User.php(161): Db::getConnection()
+#2 C:\Users\twolt\OneDrive - BBQ - Baumann Bildung und Qualifizierung GmbH\source\PHP\Projekte\sudoku\controllers\ShowAuthenticationController.php(72): User->isLoginOK('admin', 'himmel')
+#3 C:\Users\twolt\OneDrive - BBQ - Baumann Bildung und Qualifizierung GmbH\source\PHP\Projekte\sudoku\index.php(38): ShowAuthenticationController->invoke(Array)
+#4 {main}
+24.11.2024 - 12:46:37   PDOException: SQLSTATE[HY000] [2002] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte in C:\Users\twolt\OneDrive - BBQ - Baumann Bildung und Qualifizierung GmbH\source\PHP\Projekte\sudoku\classes\Db.php:16
+Stack trace:
+#0 C:\Users\twolt\OneDrive - BBQ - Baumann Bildung und Qualifizierung GmbH\source\PHP\Projekte\sudoku\classes\Db.php(16): PDO->__construct('mysql:dbname=su...', 'root', Object(SensitiveParameterValue))
+#1 C:\Users\twolt\OneDrive - BBQ - Baumann Bildung und Qualifizierung GmbH\source\PHP\Projekte\sudoku\classes\User.php(161): Db::getConnection()
+#2 C:\Users\twolt\OneDrive - BBQ - Baumann Bildung und Qualifizierung GmbH\source\PHP\Projekte\sudoku\controllers\ShowAuthenticationController.php(72): User->isLoginOK('admin', 'himmel')
+#3 C:\Users\twolt\OneDrive - BBQ - Baumann Bildung und Qualifizierung GmbH\source\PHP\Projekte\sudoku\index.php(38): ShowAuthenticationController->invoke(Array)
+#4 {main}
+24.11.2024 - 12:45:08   PDOException: SQLSTATE[HY000] [2002] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte in C:\Users\twolt\OneDrive - BBQ - Baumann Bildung und Qualifizierung GmbH\source\PHP\Projekte\sudoku\classes\Db.php:16
+Stack trace:
+#0 C:\Users\twolt\OneDrive - BBQ - Baumann Bildung und Qualifizierung GmbH\source\PHP\Projekte\sudoku\classes\Db.php(16): PDO->__construct('mysql:dbname=su...', 'root', Object(SensitiveParameterValue))
+#1 C:\Users\twolt\OneDrive - BBQ - Baumann Bildung und Qualifizierung GmbH\source\PHP\Projekte\sudoku\classes\User.php(161): Db::getConnection()
+#2 C:\Users\twolt\OneDrive - BBQ - Baumann Bildung und Qualifizierung GmbH\source\PHP\Projekte\sudoku\controllers\ShowAuthenticationController.php(72): User->isLoginOK('admin', 'himmel')
+#3 C:\Users\twolt\OneDrive - BBQ - Baumann Bildung und Qualifizierung GmbH\source\PHP\Projekte\sudoku\index.php(38): ShowAuthenticationController->invoke(Array)
+#4 {main}
 14.11.2024 - 11:59:52   Error: Call to undefined method User::getPasswordHash() in C:\Users\ThomasWolting\OneDrive - BBQ - Baumann Bildung und Qualifizierung GmbH\source\PHP\Projekte\sudoku\controllers\ShowAuthenticationController.php:23
 Stack trace:
 #0 C:\Users\ThomasWolting\OneDrive - BBQ - Baumann Bildung und Qualifizierung GmbH\source\PHP\Projekte\sudoku\index.php(38): ShowAuthenticationController->invoke(Array)

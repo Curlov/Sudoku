@@ -38,16 +38,12 @@
                 </div>
             </div>
             <div class="button-group-action">
-                <div>
-                    <input form="gamePlay" id="ButtonErase" type="submit" class="buttonAction" name="submit" value="Erase">
-                </div>
-                <div>
-                    <!-- Ein hidden Field um den "note"-Schalter zu setzen -->
-                    <input form="gamePlay" type="hidden" name="note" id="noteHidden" value="<?php echo isset($_SESSION['note']) ? $_SESSION['note'] : '0'; ?>">
-                    <button type="button" id="toggleButton" class="buttonAction2 <?php echo isset($_SESSION['note']) && $_SESSION['note'] == '1' ? 'active' : ''; ?>" onclick="toggleNote()">
-                        Note
-                    </button>
-                </div>
+                <input form="gamePlay" id="ButtonErase" type="submit" class="buttonAction" name="submit" value="Erase">
+                <!-- Ein hidden Field um den "note"-Schalter zu setzen -->
+                <input form="gamePlay" type="hidden" name="note" id="noteHidden" value="<?php echo isset($_SESSION['note']) ? $_SESSION['note'] : '0'; ?>">
+                <button type="button" id="toggleButton" class="buttonAction2 <?php echo isset($_SESSION['note']) && $_SESSION['note'] == '1' ? 'active' : ''; ?>" onclick="toggleNote()">
+                    Note
+                </button>
             </div>
            <form id="gamePlay" action="index.php" method="post">
                <input type="hidden" name="action" value="showPlay">

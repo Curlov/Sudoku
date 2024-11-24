@@ -34,7 +34,7 @@ class LoginHelper
             <form action="index.php" method="post">
                 <input type="hidden" name="action" value="showAuthentication">
                 <input type="hidden" name="area" value="authentication">
-                <label class="font_G">Username:<br>
+                <label>Username:<br>
                     <div class="input-style">'.$_SESSION['username'].'</div>
                 </label>
                 <div class="button-group">

@@ -14,27 +14,28 @@
     --color-white: rgb(255, 255, 255);
     --color-pink: #9D1798;
     --color-defRed: #D80000;
-    --cell-size: 50px;
+    --cell-size: 70px;
 }
+
 .base
 {
     display: block;
     position: fixed;
-    top:50px;
+    top:10px;
+    width:95%;
+    max-width: 650px;
+    min-width: 400px;
 }
-
 
 .container
 {
     display: block;
-    position: fixed;
+    position: absolute; /*fixed;*/
     width: 400px;
     height: 430px;
     border-radius: 15px;
     background-color: rgba(0,0,0,0.85);
-    top: 400px;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: calc(15vh);
     z-index: 1000;
     color: azure;
 }
@@ -100,9 +101,11 @@
 
 .button-group {
     display: flex;
-    justify-content: center;
     gap: 6px;
     margin-top: 3px;
+    align-items: center;
+    max-width: 100%;
+    width: 100%;
 }
 
 .button-group-numbers {
@@ -117,10 +120,14 @@
     margin-top: 0;
     gap: 5px;
     display: flex;
+    justify-content: space-between;
+    max-width: 100%;
+    width: 100%;
 }
 
 .buttonAction, .buttonAction2 {
-    width: 245px;
+    flex: 1;
+    max-width: calc(50% - 3px);
     font-family: Bahnschrift, serif;
     font-size: 30px;
     background-color: var(--cell-bg-color);
@@ -128,7 +135,6 @@
     padding: 3px 0 0 0;
     border-radius: 5px;
     color: azure;
-    margin-top:0;
     cursor: pointer;
 }
 
@@ -143,8 +149,8 @@
 }
 
 .buttonNumbers {
-    width: 50px;
-    height: 50px;
+    width: var(--cell-size);
+    aspect-ratio: 1 / 1;
     margin: 0;
     padding: 0;
     font-family: Bahnschrift, serif;
@@ -184,14 +190,17 @@
 }
 
 .button_G {
+    flex: 1;
     font-family: Bahnschrift, serif;
-    font-size: 20px;
+    font-size: clamp(16px, 4vw, 30px);
     background-color: var(--button-color);
     border: none;
     border-radius: 5px;
     color: var(--color-black);
     margin-top: 15px;
+    padding: 5px 8px 3px 8px;
     cursor: pointer;
+    min-width: 130px;
 }
 
 .button_G:hover {
@@ -242,7 +251,7 @@ body {
     margin-right: 9px;
     vertical-align: bottom;
     flex: auto;
-    text-align: left;
+    text-align: right;
 }
 
 .right {
@@ -250,6 +259,12 @@ body {
     flex: auto;
     text-align: left;
     padding-bottom: 8px;
+    /*max-width: 30%;*/
+}
+
+.logo {
+    width: 100%;
+    max-width: 100%;
 }
 
 .board {
@@ -263,6 +278,7 @@ body {
     text-align: center;
     margin: 0;
     padding: 0;
+    max-width: 100%;
 }
 
 .table
@@ -278,8 +294,9 @@ body {
 }
 
 .cell {
-    width: var(--cell-size);
-    height: var(--cell-size);
+    width: min(10vw, var(--cell-size));
+    height: min(10vw, var(--cell-size));
+    aspect-ratio: 1 / 1;
     border-style: solid;
     border-color: var(--cell-bg-color);
     border-width: 1px;
@@ -386,7 +403,7 @@ tr:last-child .cell {
 
 .messageBoardLeft {
     display: block;
-    width: 25%;
+    width: 35%;
     height: 20px;
     text-align: left;
     margin: 0 0 0 5px;
@@ -394,7 +411,7 @@ tr:last-child .cell {
 }
 
 .messageBoardMiddel {
-    width: 50%;
+    width: 30%;
     height: 20px;
     text-align: center;
     margin: 0 0 0 0 ;
@@ -403,7 +420,7 @@ tr:last-child .cell {
 }
 
 .messageBoardRight {
-    width: 25%;
+    width: 35%;
     height: 20px;
     text-align: right;
     margin: 0 5px 0 0 ;

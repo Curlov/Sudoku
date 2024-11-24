@@ -24,24 +24,30 @@
         </div>
         <div class ="footer">
             <div class="button-group">
-                <form id="board" action="index.php" method="post">
-                    <input type="hidden" name="action" value="showCreateBoard">
-                    <input type="hidden" name="area" value="create">
-                    <input type="hidden" name="view" value="create">
-                    <input class="button_G" style="width: 150px; margin-right: 5px; padding: 5px" type="submit" name="submit" value="Create Board">
-                </form>
-                <form id="mask" action="index.php" method="post">
-                    <input type="hidden" name="action" value="showCreateMask">
-                    <input type="hidden" name="area" value="create">
-                    <input type="hidden" name="view" value="create">
-                    <input class="button_G" style="width: 150px; margin-right: 5px; padding: 5px" type="submit" name="submit" value="Create Mask">
-                </form>
-                <form action="index.php" method="post">
-                    <input type="hidden" name="action" value="showCreateCheck">
-                    <input type="hidden" name="area" value="create">
-                    <input type="hidden" name="view" value="create">
-                    <input class="button_G" style="width: 150px; margin-right: 5px; padding: 5px" type="submit" name="submit" value="Check Game">
-                </form>
+                <div style="width: 33%;">
+                    <form id="board" action="index.php" method="post">
+                        <input type="hidden" name="action" value="showCreateBoard">
+                        <input type="hidden" name="area" value="create">
+                        <input type="hidden" name="view" value="create">
+                        <input class="button_G" type="submit" name="submit" value="Create Board">
+                    </form>
+                </div>
+                <div style="width: 33%;">
+                    <form id="mask" action="index.php" method="post">
+                        <input type="hidden" name="action" value="showCreateMask">
+                        <input type="hidden" name="area" value="create">
+                        <input type="hidden" name="view" value="create">
+                        <input class="button_G" type="submit" name="submit" value="Create Mask">
+                    </form>
+                </div>
+                <div style="width: 33%;">
+                    <form action="index.php" method="post">
+                        <input type="hidden" name="action" value="showCreateCheck">
+                        <input type="hidden" name="area" value="create">
+                        <input type="hidden" name="view" value="create">
+                        <input class="button_G" type="submit" name="submit" value="Check Game">
+                    </form>
+                </div>
             </div>
             <div style="display: flex; justify-content: center; margin-top: 10px; align-content: center">
                 <div class="slidecontainer">
@@ -53,7 +59,7 @@
                     <input type="hidden" name="action" value="showCreateSafe">
                     <input type="hidden" name="area" value="create">
                     <input type="hidden" name="view" value="safeSudoku">
-                    <input class="button_G" style="width: 150px; margin-right: 5px; padding: 5px" type="submit" name="submit" value="Safe Game" <?php echo (isset($solutionCount) && $solutionCount === 1) ? '' : 'disabled'; ?>>
+                    <input class="button_G" type="submit" name="submit" value="Safe Game" <?php echo (isset($solutionCount) && $solutionCount === 1) ? '' : 'disabled'; ?>>
                 </form>
             </div>
             <div>
