@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="6a3a57fb-5935-4efb-8688-151bfa9d9b80" name="Changes" comment="Start mit JS" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="JS-ist-fertig" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="create" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Curlov&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Curlov/Sudoku.git&quot;,
+    &quot;accountId&quot;: &quot;4a21fcb0-9fe7-4dde-b230-404ce0bd2676&quot;
+  }
+}</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/classes/User.php" root0="FORCE_HIGHLIGHTING" root1="SKIP_INSPECTION" />
+  </component>
+  <component name="PhpServers">
+    <servers>
+      <server host="PhpStorm 2024.2.3" id="91271215-dd17-471f-91b6-ff093f2471f7" name="PhpStorm 2024.2.3" port="63342" />
+    </servers>
+  </component>
+  <component name="PhpWebServerValidation" path_to_validation_script="C:\Users\ThomasWolting\OneDrive - BBQ - Baumann Bildung und Qualifizierung GmbH\source\PHP\Projekte\sudoku" selected_validation_type="LOCAL" web_path_to_validation_script="http://127.0.0.1/php/projekte/sudoku/" />
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2nvZZsodluUHne3e5YX5smCqLSq" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;PHP Script.index.php.executor&quot;: &quot;Debug&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/ThomasWolting/OneDrive - BBQ - Baumann Bildung und Qualifizierung GmbH/source/PHP/Projekte/sudoku/views/play&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mariadb&quot;
+    ]
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\ThomasWolting\OneDrive - BBQ - Baumann Bildung und Qualifizierung GmbH\source\PHP\Projekte\sudoku\views\play" />
+      <recent name="C:\Users\ThomasWolting\OneDrive - BBQ - Baumann Bildung und Qualifizierung GmbH\source\PHP\Projekte\sudoku\views\main" />
+      <recent name="C:\Users\ThomasWolting\OneDrive - BBQ - Baumann Bildung und Qualifizierung GmbH\source\PHP\Projekte\sudoku\views\create" />
+      <recent name="C:\Users\twolt\OneDrive - BBQ - Baumann Bildung und Qualifizierung GmbH\source\PHP\Projekte\sudoku\views\authentication" />
+      <recent name="C:\Users\twolt\OneDrive - BBQ - Baumann Bildung und Qualifizierung GmbH\source\PHP\Projekte\sudoku\views\registration" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ThomasWolting\OneDrive - BBQ - Baumann Bildung und Qualifizierung GmbH\source\PHP\Projekte\sudoku\docs" />
+      <recent name="C:\Users\twolt\OneDrive - BBQ - Baumann Bildung und Qualifizierung GmbH\source\PHP\Projekte\sudoku\views\authentication" />
+      <recent name="C:\Users\twolt\OneDrive - BBQ - Baumann Bildung und Qualifizierung GmbH\source\PHP\Projekte\sudoku\00" />
+      <recent name="C:\Users\ThomasWolting\OneDrive - BBQ - Baumann Bildung und Qualifizierung GmbH\source\PHP\Projekte\sudoku\00" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-PS-242.23339.16" />
+        <option value="bundled-php-predefined-a98d8de5180a-90914f2295cb-com.jetbrains.php.sharedIndexes-PS-242.23339.16" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6a3a57fb-5935-4efb-8688-151bfa9d9b80" name="Changes" comment="" />
+      <created>1729855568157</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1729855568157</updated>
+      <workItem from="1729855569179" duration="34533000" />
+      <workItem from="1729890262847" duration="12527000" />
+      <workItem from="1729942048577" duration="3064000" />
+      <workItem from="1729945973675" duration="1623000" />
+      <workItem from="1729948189300" duration="284000" />
+      <workItem from="1729948597622" duration="159000" />
+      <workItem from="1729948767931" duration="222000" />
+      <workItem from="1729973004491" duration="3921000" />
+      <workItem from="1729991374765" duration="569000" />
+      <workItem from="1730020235457" duration="24431000" />
+      <workItem from="1730044915721" duration="20372000" />
+      <workItem from="1730065484054" duration="3378000" />
+      <workItem from="1730132198005" duration="12826000" />
+      <workItem from="1730145057849" duration="4783000" />
+      <workItem from="1730153095751" duration="500000" />
+      <workItem from="1730154305433" duration="93000" />
+      <workItem from="1730218502020" duration="137000" />
+      <workItem from="1730218652320" duration="1849000" />
+      <workItem from="1730221006529" duration="1388000" />
+      <workItem from="1730223042926" duration="5810000" />
+      <workItem from="1730229699150" duration="371000" />
+      <workItem from="1730234044464" duration="4331000" />
+      <workItem from="1730272213512" duration="105000" />
+      <workItem from="1730272345333" duration="454000" />
+      <workItem from="1730273333251" duration="192000" />
+      <workItem from="1730275032579" duration="164000" />
+      <workItem from="1730277888216" duration="102000" />
+      <workItem from="1730278099241" duration="315000" />
+      <workItem from="1730278861329" duration="252000" />
+      <workItem from="1730280395576" duration="401000" />
+      <workItem from="1730281702184" duration="74000" />
+      <workItem from="1730282521348" duration="1291000" />
+      <workItem from="1730284323472" duration="649000" />
+      <workItem from="1730286275711" duration="105000" />
+      <workItem from="1730286662089" duration="725000" />
+      <workItem from="1730287401815" duration="5850000" />
+      <workItem from="1730293274109" duration="6157000" />
+      <workItem from="1730306238905" duration="10000" />
+      <workItem from="1730306265052" duration="9338000" />
+      <workItem from="1730359488238" duration="104000" />
+      <workItem from="1730365275427" duration="38000" />
+      <workItem from="1730365326876" duration="340000" />
+      <workItem from="1730365693185" duration="876000" />
+      <workItem from="1730371022013" duration="12102000" />
+      <workItem from="1730391690384" duration="20000" />
+      <workItem from="1730391805124" duration="10309000" />
+      <workItem from="1730405712639" duration="2804000" />
+      <workItem from="1730446400832" duration="86000" />
+      <workItem from="1730451583514" duration="647000" />
+      <workItem from="1730704249646" duration="606000" />
+      <workItem from="1730711802395" duration="6696000" />
+      <workItem from="1730718571581" duration="9814000" />
+      <workItem from="1730736619356" duration="1201000" />
+      <workItem from="1730737981019" duration="354000" />
+      <workItem from="1730750134274" duration="82000" />
+      <workItem from="1730789926660" duration="8000" />
+      <workItem from="1730790071408" duration="1386000" />
+      <workItem from="1730793928167" duration="854000" />
+      <workItem from="1730796724001" duration="36000" />
+      <workItem from="1730796788440" duration="12000" />
+      <workItem from="1730796850861" duration="21064000" />
+      <workItem from="1730877042013" duration="382000" />
+      <workItem from="1730881303465" duration="676000" />
+      <workItem from="1730882315969" duration="638000" />
+      <workItem from="1730882966808" duration="304000" />
+      <workItem from="1730883282024" duration="1345000" />
+      <workItem from="1730886007500" duration="3245000" />
+      <workItem from="1730889270918" duration="6616000" />
+      <workItem from="1730896763962" duration="1954000" />
+      <workItem from="1730969264213" duration="957000" />
+      <workItem from="1730970231549" duration="5609000" />
+      <workItem from="1730980453549" duration="21292000" />
+      <workItem from="1731050747931" duration="128000" />
+      <workItem from="1731051762454" duration="28088000" />
+      <workItem from="1731308662832" duration="76000" />
+      <workItem from="1731308745481" duration="347000" />
+    </task>
+    <task id="LOCAL-00001" summary="user Datenbank angelegt">
+      <option name="closed" value="true" />
+      <created>1730287510796</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1730287510796</updated>
+    </task>
+    <task id="LOCAL-00002" summary="user Datenbank angelegt, Registrierung kann erfolgen. Container in eine static Klasse gepackt">
+      <option name="closed" value="true" />
+      <created>1730299196168</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1730299196168</updated>
+    </task>
+    <task id="LOCAL-00003" summary="login abgeschlossen.">
+      <option name="closed" value="true" />
+      <created>1730717830209</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1730717830209</updated>
+    </task>
+    <task id="LOCAL-00004" summary="login abgeschlossen.">
+      <option name="closed" value="true" />
+      <created>1730718435171</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1730718435171</updated>
+    </task>
+    <task id="LOCAL-00005" summary="try &amp; catch abgeschlossen für login">
+      <option name="closed" value="true" />
+      <created>1730726242586</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1730726242586</updated>
+    </task>
+    <task id="LOCAL-00006" summary="try &amp; catch abgeschlossen für login">
+      <option name="closed" value="true" />
+      <created>1730731102722</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1730731102722</updated>
+    </task>
+    <task id="LOCAL-00007" summary="try &amp; catch abgeschlossen für login">
+      <option name="closed" value="true" />
+      <created>1730738128965</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1730738128965</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Fast fertig mit dem Create">
+      <option name="closed" value="true" />
+      <created>1730817936215</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1730817936215</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Start mit JS">
+      <option name="closed" value="true" />
+      <created>1731002188595</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1731002188595</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Start mit JS">
+      <option name="closed" value="true" />
+      <created>1731002210082</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1731002210082</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Start mit JS">
+      <option name="closed" value="true" />
+      <created>1731055151862</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1731055151862</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Start mit JS">
+      <option name="closed" value="true" />
+      <created>1731055165823</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1731055165823</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Start mit JS">
+      <option name="closed" value="true" />
+      <created>1731073603882</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1731073603882</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Start mit JS">
+      <option name="closed" value="true" />
+      <created>1731076946760</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1731076946760</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Start mit JS">
+      <option name="closed" value="true" />
+      <created>1731076956494</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1731076956494</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Start mit JS">
+      <option name="closed" value="true" />
+      <created>1731086257217</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1731086257217</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Start mit JS">
+      <option name="closed" value="true" />
+      <created>1731086537336</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1731086537336</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+        <option value="GitHub.CommitStatus" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="JS-ist-fertig" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="user Datenbank angelegt" />
+    <MESSAGE value="user Datenbank angelegt, Registrierung kann erfolgen. Container in eine static Klasse gepackt" />
+    <MESSAGE value="login abgeschlossen." />
+    <MESSAGE value="try &amp; catch abgeschlossen für login" />
+    <MESSAGE value="Ers" />
+    <MESSAGE value="Fast fertig mit dem Create" />
+    <MESSAGE value="Start mit Play" />
+    <MESSAGE value="Start mit JS" />
+    <option name="LAST_COMMIT_MESSAGE" value="Start mit JS" />
+  </component>
+</project>

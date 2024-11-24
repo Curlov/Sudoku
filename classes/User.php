@@ -51,6 +51,22 @@ class User
     }
 
     /**
+     * @return string|null
+     */
+    public function getUsername()
+    {
+        return $this->username;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getCountry()
+    {
+        return $this->country;
+    }
+
+    /**
      * @param int $id
      * @return void
      */
